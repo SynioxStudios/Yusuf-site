@@ -1,212 +1,259 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>YUSUF | Elite Portfolio</title>
+    <title>YUSUF | GOD-LEVEL ARCHITECT</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Syncopate:wght@400;700&family=Inter:wght@400;700;900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Syncopate:wght@400;700&family=Orbitron:wght@400;900&family=Inter:wght@300;900&display=swap');
 
         :root {
             --primary: #ff0000;
-            --primary-glow: rgba(255, 0, 0, 0.6);
-            --bg-black: #050505;
-            --card-bg: rgba(12, 12, 12, 0.98);
-            --border: rgba(255, 0, 0, 0.25);
+            --primary-glow: rgba(255, 0, 0, 0.8);
+            --secondary: #ffffff;
+            --bg-dark: #000000;
+            --glass: rgba(15, 15, 15, 0.85);
         }
 
+        * { margin: 0; padding: 0; box-sizing: border-box; cursor: crosshair; }
         html { scroll-behavior: smooth; }
 
         body {
-            background-color: var(--bg-black);
+            background-color: var(--bg-dark);
             color: #fff; font-family: 'Inter', sans-serif;
-            margin: 0; padding: 0; overflow-x: hidden;
-            background: radial-gradient(circle at top right, #250000 0%, #050505 100%);
+            overflow-x: hidden;
         }
 
-        /* --- NAV MENU (SOL ÜST) --- */
-        .menu-icon {
-            position: fixed; top: 25px; left: 25px; z-index: 1000;
-            cursor: pointer; background: var(--card-bg);
-            padding: 12px; border-radius: 12px; border: 1px solid var(--border);
-            transition: 0.3s;
+        /* --- FANTASTİK ARKA PLAN --- */
+        #bg-canvas { position: fixed; top: 0; left: 0; z-index: -1; width: 100%; height: 100%; }
+        .neon-grid {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background-image: linear-gradient(var(--primary) 1px, transparent 1px), linear-gradient(90deg, var(--primary) 1px, transparent 1px);
+            background-size: 50px 50px; background-position: center;
+            opacity: 0.05; transform: perspective(500px) rotateX(60deg);
+            z-index: -1; animation: gridMove 5s linear infinite;
         }
-        .menu-icon:hover { box-shadow: 0 0 15px var(--primary-glow); }
+        @keyframes gridMove { from { background-position: 0 0; } to { background-position: 0 50px; } }
 
-        .full-nav {
-            position: fixed; top: 0; left: -100%; width: 100%; height: 100%;
-            background: rgba(5, 5, 5, 0.98); z-index: 999;
-            display: flex; flex-direction: column; justify-content: center; align-items: center;
-            transition: 0.5s cubic-bezier(0.77,0.2,0.05,1.0); gap: 30px;
+        /* --- SİBER YAN MENÜ --- */
+        .menu-trigger {
+            position: fixed; top: 30px; left: 30px; z-index: 10001;
+            width: 50px; height: 50px; background: var(--primary);
+            display: flex; justify-content: center; align-items: center;
+            border-radius: 5px; box-shadow: 0 0 20px var(--primary-glow);
+            clip-path: polygon(20% 0%, 100% 0%, 80% 100%, 0% 100%); transition: 0.4s;
         }
-        .full-nav.active { left: 0; }
-        .full-nav a {
-            font-family: 'Syncopate'; font-size: 1.5rem; color: #fff;
-            text-decoration: none; text-transform: uppercase; letter-spacing: 5px;
-            transition: 0.3s;
+        .menu-trigger:hover { transform: scale(1.1) rotate(90deg); }
+
+        .side-nav {
+            position: fixed; top: 0; left: -100%; width: 300px; height: 100vh;
+            background: rgba(5, 5, 5, 0.95); z-index: 10000;
+            border-right: 2px solid var(--primary); backdrop-filter: blur(20px);
+            display: flex; flex-direction: column; padding: 100px 40px; transition: 0.6s cubic-bezier(0.85, 0, 0.15, 1);
         }
-        .full-nav a:hover { color: var(--primary); text-shadow: 0 0 10px var(--primary); }
-        .close-nav { position: absolute; top: 30px; right: 30px; font-size: 2rem; cursor: pointer; }
-
-        /* --- ARKA PLAN --- */
-        .stars { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; opacity: 0.2; }
-        
-        .wrapper { max-width: 550px; margin: 0 auto; padding: 80px 20px 40px; }
-
-        /* --- HERO --- */
-        .hero { text-align: center; margin-bottom: 60px; }
-        .logo-box {
-            width: 120px; height: 120px; margin: 0 auto 25px; position: relative;
+        .side-nav.active { left: 0; box-shadow: 20px 0 100px rgba(255,0,0,0.2); }
+        .side-nav a {
+            font-family: 'Syncopate'; font-size: 0.8rem; color: #fff; text-decoration: none;
+            margin-bottom: 30px; letter-spacing: 3px; position: relative; transition: 0.3s;
         }
-        .logo-box::after {
-            content: ''; position: absolute; inset: -10px; border: 2px solid var(--primary);
-            border-radius: 30px; animation: pulse 2s infinite;
+        .side-nav a:hover { color: var(--primary); padding-left: 10px; }
+        .side-nav a::before { content: '>'; position: absolute; left: -20px; opacity: 0; transition: 0.3s; }
+        .side-nav a:hover::before { opacity: 1; }
+
+        /* --- ANA PANEL --- */
+        .main-wrapper { max-width: 800px; margin: 0 auto; padding: 100px 20px; }
+
+        .hero-section { text-align: center; position: relative; margin-bottom: 150px; }
+        .glitch-name {
+            font-family: 'Orbitron', sans-serif; font-size: 5rem; font-weight: 900;
+            letter-spacing: 15px; text-transform: uppercase; position: relative;
+            animation: glitch 2s infinite;
         }
-        .logo-box img { width: 100%; height: 100%; border-radius: 25px; border: 2px solid var(--primary); object-fit: cover; }
-        @keyframes pulse { 0% { transform: scale(1); opacity: 0.8; } 100% { transform: scale(1.3); opacity: 0; } }
-
-        .shimmer-title {
-            font-family: 'Syncopate', sans-serif; font-size: 2.5rem; letter-spacing: 10px; font-weight: 700;
-            background: linear-gradient(90deg, #fff, var(--primary), #fff);
-            background-size: 200% auto; -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-            animation: shimmer 3s linear infinite; margin: 0;
+        @keyframes glitch {
+            0% { text-shadow: 3px 0 red, -3px 0 blue; }
+            5% { text-shadow: -3px 0 red, 3px 0 blue; }
+            10% { text-shadow: 3px 0 red, -3px 0 blue; }
+            100% { text-shadow: none; }
         }
-        @keyframes shimmer { to { background-position: 200% center; } }
 
-        /* --- SECTIONS --- */
-        .section-header { 
-            font-size: 0.8rem; color: var(--primary); letter-spacing: 4px; 
-            text-transform: uppercase; margin: 60px 0 25px; 
-            display: flex; align-items: center; gap: 15px; 
+        /* --- DOLDURULMUŞ BÖLÜMLER --- */
+        .glass-card {
+            background: var(--glass); border: 1px solid var(--border);
+            border-radius: 5px; padding: 40px; margin-bottom: 50px;
+            position: relative; overflow: hidden;
+            box-shadow: 0 0 40px rgba(0,0,0,0.5);
+            transition: 0.5s;
         }
-        .section-header::after { content: ''; height: 1px; flex-grow: 1; background: var(--border); }
-
-        /* --- LIVE STATUS --- */
-        .live-status {
-            background: rgba(0, 255, 0, 0.05); border: 1px solid rgba(0, 255, 0, 0.2);
-            padding: 15px; border-radius: 15px; display: flex; align-items: center; gap: 10px;
-            font-size: 0.75rem; color: #00ff00; margin-bottom: 30px;
+        .glass-card::before {
+            content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255,0,0,0.05), transparent);
+            transform: rotate(45deg); animation: shine 5s infinite;
         }
-        .dot { width: 8px; height: 8px; background: #00ff00; border-radius: 50%; animation: blink 1s infinite; }
-        @keyframes blink { 50% { opacity: 0; } }
+        @keyframes shine { 0% { transform: translate(-50%, -50%) rotate(45deg); } 100% { transform: translate(50%, 50%) rotate(45deg); } }
 
-        /* --- SKILLS --- */
-        .skills-box { background: var(--card-bg); border: 1px solid var(--border); border-radius: 25px; padding: 25px; }
-        .skill { margin-bottom: 20px; }
-        .skill-info { display: flex; justify-content: space-between; font-size: 0.75rem; margin-bottom: 8px; font-weight: bold; }
-        .progress-bg { width: 100%; height: 8px; background: #111; border-radius: 4px; border: 1px solid rgba(255,0,0,0.1); }
-        .progress-fill { height: 100%; background: linear-gradient(90deg, #800000, #ff0000); box-shadow: 0 0 15px var(--primary-glow); }
-
-        /* --- TIMELINE --- */
-        .timeline { padding-left: 20px; border-left: 2px solid var(--border); margin-left: 10px; }
-        .event { position: relative; margin-bottom: 40px; }
-        .event::before { content: ''; position: absolute; left: -27px; top: 0; width: 12px; height: 12px; border-radius: 50%; background: var(--primary); }
-        .event-year { font-family: 'Syncopate'; font-size: 0.9rem; color: #fff; }
-        .event-desc { font-size: 0.75rem; color: #888; margin-top: 5px; }
-
-        /* --- SOCIAL --- */
-        .social-stack { display: flex; flex-direction: column; gap: 12px; }
-        .social-link {
-            background: var(--card-bg); border: 1px solid var(--border); border-radius: 18px;
-            padding: 20px; display: flex; align-items: center; gap: 15px;
-            color: #fff; text-decoration: none; font-weight: bold; transition: 0.3s;
+        .section-title {
+            font-family: 'Syncopate'; font-size: 1.2rem; color: var(--primary);
+            margin-bottom: 30px; display: block; border-bottom: 1px solid var(--primary);
+            padding-bottom: 10px; text-shadow: 0 0 10px var(--primary-glow);
         }
-        .social-link:hover { background: var(--primary); transform: scale(1.02); }
 
-        .footer-tag { text-align: center; font-size: 0.6rem; color: #333; letter-spacing: 3px; margin-top: 80px; }
+        /* Skills Coşturma */
+        .skill-hex { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .skill-item { background: rgba(255,0,0,0.03); padding: 20px; border-left: 4px solid var(--primary); }
+        .skill-item h4 { font-size: 0.7rem; letter-spacing: 2px; color: #888; margin-bottom: 10px; }
+        .skill-val { font-family: 'Orbitron'; font-size: 1.5rem; color: #fff; }
+
+        /* Timeline Coşturma */
+        .complex-timeline { position: relative; padding-left: 40px; }
+        .t-item { margin-bottom: 50px; position: relative; }
+        .t-item::before { 
+            content: ''; position: absolute; left: -46px; top: 0; width: 10px; height: 10px; 
+            background: var(--primary); box-shadow: 0 0 20px var(--primary);
+        }
+        .t-date { font-family: 'Syncopate'; color: var(--primary); font-size: 0.7rem; }
+        .t-body { font-size: 0.85rem; color: #ccc; margin-top: 10px; line-height: 1.6; }
+
+        /* Sosyal Medya İkonları */
+        .social-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; }
+        .s-link {
+            background: #111; border: 1px solid #333; padding: 25px;
+            display: flex; align-items: center; justify-content: center; gap: 15px;
+            text-decoration: none; color: #fff; font-family: 'Syncopate'; font-size: 0.6rem;
+            transition: 0.4s; clip-path: polygon(10% 0, 100% 0, 90% 100%, 0 100%);
+        }
+        .s-link:hover { background: var(--primary); border-color: var(--primary); transform: scale(1.05); box-shadow: 0 0 30px var(--primary-glow); }
+
+        /* Terminal Bölümü */
+        .terminal { background: #000; border: 1px solid #222; font-family: monospace; padding: 20px; border-radius: 5px; font-size: 0.8rem; color: #0f0; }
+
     </style>
 </head>
 <body>
 
-<div class="stars"></div>
+<div class="neon-grid"></div>
+<canvas id="bg-canvas"></canvas>
 
-<div class="menu-icon" onclick="toggleMenu()">
-    <i class="fa-solid fa-bars-staggered" style="font-size: 1.5rem; color: var(--primary);"></i>
+<div class="menu-trigger" onclick="toggleMenu()">
+    <i class="fa-solid fa-code"></i>
 </div>
+<nav class="side-nav" id="sideNav">
+    <a href="#home" onclick="toggleMenu()">01 // HOME</a>
+    <a href="#skills" onclick="toggleMenu()">02 // MASTERY</a>
+    <a href="#projects" onclick="toggleMenu()">03 // OPERATIONS</a>
+    <a href="#social" onclick="toggleMenu()">04 // NETWORK</a>
+</nav>
 
-<div class="full-nav" id="navMenu">
-    <div class="close-nav" onclick="toggleMenu()">&times;</div>
-    <a href="#home" onclick="toggleMenu()">Home</a>
-    <a href="#stats" onclick="toggleMenu()">Technical Mastery</a>
-    <a href="#journey" onclick="toggleMenu()">The Evolution</a>
-    <a href="#social" onclick="toggleMenu()">Connect</a>
-</div>
+<div class="main-wrapper">
+    <section class="hero-section" id="home">
+        <div class="glitch-name">YUSUF</div>
+        <p style="letter-spacing: 8px; color: var(--primary); font-family: 'Syncopate'; font-size: 0.7rem;">ELITE SCRIPT ARCHITECT</p>
+    </section>
 
-<div class="wrapper" id="home">
-    <header class="hero">
-        <div class="logo-box">
-            <img src="https://i.hizliresim.com/r3xgxvw.gif" alt="Yusuf">
-        </div>
-        <h1 class="shimmer-title">YUSUF</h1>
-        <div style="font-size: 0.6rem; color: #444; letter-spacing: 4px; margin-top: 10px;">AUTHORIZED DEVELOPER 2026</div>
-    </header>
-
-    <div class="live-status">
-        <div class="dot"></div>
-        SYSTEM STATUS: ONLINE | SERVER LATENCY: 14MS | AUTHENTICATED
-    </div>
-
-    <div class="section-header" id="stats">Technical Arsenal</div>
-    <div class="skills-box">
-        <div class="skill">
-            <div class="skill-info"><span>Lua (Advanced)</span> <span>97%</span></div>
-            <div class="progress-bg"><div class="progress-fill" style="width: 97%;"></div></div>
-        </div>
-        <div class="skill">
-            <div class="skill-info"><span>Luau (Roblox Engine)</span> <span>94%</span></div>
-            <div class="progress-bg"><div class="progress-fill" style="width: 94%;"></div></div>
-        </div>
-        <div class="skill">
-            <div class="skill-info"><span>HTML / CSS Architecture</span> <span>73%</span></div>
-            <div class="progress-bg"><div class="progress-fill" style="width: 73%;"></div></div>
-        </div>
-        <div class="skill">
-            <div class="skill-info"><span>JavaScript (Node.js)</span> <span>66%</span></div>
-            <div class="progress-bg"><div class="progress-fill" style="width: 66%;"></div></div>
+    <div class="glass-card">
+        <div class="terminal">
+            <div>> INITIALIZING SYSTEM... OK</div>
+            <div>> LOADING YUSUF_CORE_V3.DLL... OK</div>
+            <div>> STATUS: <span style="color: #ff0000; animation: blink 1s infinite;">GOD_MODE ACTIVE</span></div>
+            <div>> BY_YUSUF CONNECTED TO MAIN_FRAME</div>
         </div>
     </div>
 
-    <div class="section-header" id="journey">The Evolution</div>
-    <div class="timeline">
-        <div class="event">
-            <div class="event-year">2024</div>
-            <div class="event-desc">Sohbet, Savaş ve Parkur oyunları ile Roblox geliştiriciliğine profesyonel başlangıç.</div>
+    <section id="skills">
+        <span class="section-title">TECHNICAL ARSENAL</span>
+        <div class="glass-card skill-hex">
+            <div class="skill-item"><h4>LUA CORE</h4><div class="skill-val">97%</div></div>
+            <div class="skill-item"><h4>ROBLOX LUAU</h4><div class="skill-val">94%</div></div>
+            <div class="skill-item"><h4>WEB (HTML/CSS)</h4><div class="skill-val">73%</div></div>
+            <div class="skill-item"><h4>JS / NODE.JS</h4><div class="skill-val">66%</div></div>
         </div>
-        <div class="event">
-            <div class="event-year">2025 SEP</div>
-            <div class="event-desc">Exploit dünyasına geçiş. İleri düzey manipülasyon ve otomasyon scriptleri üretimi.</div>
-        </div>
-        <div class="event">
-            <div class="event-year">2026</div>
-            <div class="event-desc">Resmi oyun projelerinde yüksek yetenekli script desteği ve tam yetkinlik.</div>
-        </div>
-    </div>
+    </section>
 
-    <div class="section-header" id="social">Social Network</div>
-    <div class="social-stack">
-        <a href="https://discord.gg/DbAU5Z6HPd" class="social-link" style="border-color: #5865f2;">
-            <i class="fa-brands fa-discord" style="color: #5865f2;"></i> Discord Server
-        </a>
-        <a href="#" class="social-link" style="border-color: #ff0000;">
-            <i class="fa-brands fa-youtube" style="color: #ff0000;"></i> YouTube Channel
-        </a>
-        <a href="#" class="social-link" style="border-color: #fff;">
-            <i class="fa-brands fa-tiktok"></i> TikTok Profile
-        </a>
-        <a href="#" class="social-link" style="border-color: #232527;">
-            <i class="fa-solid fa-gamepad"></i> Roblox Profile
-        </a>
-    </div>
+    <section id="projects">
+        <span class="section-title">CHRONOLOGICAL ERA</span>
+        <div class="glass-card complex-timeline">
+            <div class="t-item">
+                <div class="t-date">EARLY 2024 // THE BIRTH</div>
+                <div class="t-body">Roblox üzerinde ilk sohbet sistemleri, savaş mekanikleri ve parkur haritalarının inşası. Oyun geliştirmenin temelleri atıldı.</div>
+            </div>
+            <div class="t-item">
+                <div class="t-date">SEPTEMBER 2025 // THE EXPLOIT</div>
+                <div class="t-body">Sistem zayıflıklarını manipüle eden, ileri düzey otomasyon ve "farm" scriptlerinin keşfi. Exploit dünyasında uzmanlık süreci başladı.</div>
+            </div>
+            <div class="t-item">
+                <div class="t-date">2026 // MASTER ERA</div>
+                <div class="t-body">Resmi büyük yapımlar için özel optimizasyonlar, anti-hile sistemlerini aşan yüksek yetenekli kod mimarileri ve profesyonel destek.</div>
+            </div>
+        </div>
+    </section>
 
-    <div class="footer-tag">DIGITAL ARCHITECT YUSUF &copy; 2026</div>
+    <section id="social">
+        <span class="section-title">DIGITAL LINKS</span>
+        <div class="social-grid">
+            <a href="https://discord.gg/DbAU5Z6HPd" class="s-link" style="color: #5865f2;"><i class="fa-brands fa-discord"></i> DISCORD</a>
+            <a href="#" class="s-link" style="color: #ff0000;"><i class="fa-brands fa-youtube"></i> YOUTUBE</a>
+            <a href="#" class="s-link"><i class="fa-brands fa-tiktok"></i> TIKTOK</a>
+            <a href="#" class="s-link" style="color: #777;"><i class="fa-solid fa-cube"></i> ROBLOX</a>
+        </div>
+    </section>
+
+    <footer class="footer-tag" style="text-align: center; margin-top: 100px; color: #222; font-family: 'Syncopate'; font-size: 0.5rem;">
+        YUSUF_PROTOCOLS // ENCRYPTED_BY_YUSUF © 2026
+    </footer>
 </div>
 
 <script>
     function toggleMenu() {
-        const nav = document.getElementById('navMenu');
-        nav.classList.toggle('active');
+        document.getElementById('sideNav').classList.toggle('active');
     }
+
+    // Basit Arka Plan Efekti (Particles)
+    const canvas = document.getElementById('bg-canvas');
+    const ctx = canvas.getContext('2d');
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    let particles = [];
+    class Particle {
+        constructor() {
+            this.x = Math.random() * canvas.width;
+            this.y = Math.random() * canvas.height;
+            this.size = Math.random() * 2;
+            this.speedX = Math.random() * 3 - 1.5;
+            this.speedY = Math.random() * 3 - 1.5;
+        }
+        update() {
+            this.x += this.speedX;
+            this.y += this.speedY;
+            if (this.size > 0.2) this.size -= 0.01;
+        }
+        draw() {
+            ctx.fillStyle = 'rgba(255,0,0,0.2)';
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+            ctx.fill();
+        }
+    }
+
+    function init() {
+        for (let i = 0; i < 100; i++) particles.push(new Particle());
+    }
+
+    function animate() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        for (let i = 0; i < particles.length; i++) {
+            particles[i].update();
+            particles[i].draw();
+            if (particles[i].size <= 0.2) {
+                particles.splice(i, 1);
+                i--;
+                particles.push(new Particle());
+            }
+        }
+        requestAnimationFrame(animate);
+    }
+    init();
+    animate();
 </script>
 
 </body>
