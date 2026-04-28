@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>YUSUF | Digital Architect & Security Specialist</title>
+    <title>YUSUF | Official Portfolio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Syncopate:wght@400;700&family=Inter:wght@400;700;900&display=swap');
@@ -34,7 +34,6 @@
 
         .wrapper { max-width: 500px; margin: 40px auto; padding: 0 20px; box-sizing: border-box; }
 
-        /* --- YUSUF BRANDING --- */
         .hero { text-align: center; margin-bottom: 50px; }
         .logo-box {
             width: 110px; height: 110px; margin: 0 auto 25px; position: relative;
@@ -55,23 +54,17 @@
         @keyframes shimmer { to { background-position: 200% center; } }
         .sub-tag { font-size: 0.7rem; color: #555; letter-spacing: 5px; text-transform: uppercase; margin-top: 10px; }
 
-        /* --- STATS SECTION --- */
-        .stats-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 40px; }
-        .stat-item { background: var(--card-bg); border: 1px solid var(--border); padding: 15px 5px; border-radius: 15px; text-align: center; }
-        .stat-item h3 { color: var(--primary); margin: 0; font-size: 1.2rem; font-family: 'Syncopate'; }
-        .stat-item p { font-size: 0.6rem; color: #666; text-transform: uppercase; margin-top: 5px; }
-
-        /* --- SKILLS SECTION (From Video) --- */
+        /* --- SKILLS SECTION --- */
         .section-header { font-size: 0.8rem; color: var(--primary); letter-spacing: 3px; text-transform: uppercase; margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
         .section-header::after { content: ''; height: 1px; flex-grow: 1; background: var(--border); }
         
         .skills-box { background: var(--card-bg); border: 1px solid var(--border); border-radius: 25px; padding: 25px; margin-bottom: 40px; }
         .skill { margin-bottom: 20px; }
         .skill-info { display: flex; justify-content: space-between; font-size: 0.75rem; margin-bottom: 8px; font-weight: bold; }
-        .progress-bg { width: 100%; height: 8px; background: #111; border-radius: 4px; overflow: hidden; border: 1px solid rgba(255,0,0,0.1); }
+        .progress-bg { width: 100%; height: 8px; background: #111; border-radius: 4px; border: 1px solid rgba(255,0,0,0.1); }
         .progress-fill { height: 100%; background: linear-gradient(90deg, #800000, #ff0000); box-shadow: 0 0 15px var(--primary-glow); border-radius: 4px; }
 
-        /* --- TIMELINE (From Video) --- */
+        /* --- TIMELINE (Senin Gerçek Geçmişin) --- */
         .timeline-container { padding-left: 20px; border-left: 2px solid var(--border); margin: 30px 10px 50px 10px; }
         .event { position: relative; margin-bottom: 40px; }
         .event::before { content: ''; position: absolute; left: -27px; top: 0; width: 12px; height: 12px; border-radius: 50%; background: var(--primary); box-shadow: 0 0 15px var(--primary); }
@@ -79,11 +72,21 @@
         .event-title { font-size: 0.8rem; color: var(--primary); font-weight: 900; text-transform: uppercase; margin-bottom: 8px; }
         .event-desc { font-size: 0.75rem; color: #888; line-height: 1.5; }
 
-        /* --- ACTION BOX --- */
-        .action-card { background: linear-gradient(145deg, #111, #000); border: 1px solid var(--border); border-radius: 30px; padding: 30px; text-align: center; margin-bottom: 40px; }
-        .action-card h2 { font-size: 1rem; margin-bottom: 20px; letter-spacing: 2px; }
-        .btn-main { background: #fff; color: #000; text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 12px; padding: 20px; border-radius: 18px; font-weight: 900; font-size: 0.9rem; transition: 0.3s; }
-        .btn-main:hover { background: var(--primary); color: #fff; box-shadow: 0 0 40px var(--primary-glow); transform: scale(1.02); }
+        /* --- SOCIAL LINKS --- */
+        .social-stack { display: flex; flex-direction: column; gap: 12px; margin-bottom: 40px; }
+        .social-link {
+            background: var(--card-bg); border: 1px solid var(--border); border-radius: 18px;
+            padding: 18px; display: flex; align-items: center; gap: 15px;
+            color: #fff; text-decoration: none; font-weight: bold; font-size: 0.9rem;
+            transition: 0.3s;
+        }
+        .social-link:hover { background: var(--primary); transform: translateX(8px); box-shadow: 0 0 20px var(--primary-glow); }
+        .social-link i { font-size: 1.2rem; width: 25px; text-align: center; }
+        
+        .discord-btn { background: #5865F2 !important; border: none !important; }
+        .yt-btn { background: #FF0000 !important; border: none !important; }
+        .tt-btn { background: #000000 !important; border: 1px solid #fff !important; }
+        .rbx-btn { background: #232527 !important; border: none !important; }
 
         .footer-tag { text-align: center; font-size: 0.6rem; color: #333; letter-spacing: 3px; padding-bottom: 40px; }
     </style>
@@ -95,63 +98,69 @@
 <div class="wrapper">
     <header class="hero">
         <div class="logo-box">
-            <img src="https://i.hizliresim.com/r3xgxvw.gif" alt="Yusuf">
+            <img src="https://i.hizliresim.com/r3xgxvw.gif" alt="Yusuf Logo">
         </div>
         <h1 class="shimmer-title">YUSUF</h1>
-        <div class="sub-tag">Full-Stack System Architect</div>
+        <div class="sub-tag">Digital Realities & Script Architect</div>
     </header>
 
-    <div class="stats-row">
-        <div class="stat-item"><h3>80+</h3><p>Projects</p></div>
-        <div class="stat-item"><h3>30+</h3><p>Clients</p></div>
-        <div class="stat-item"><h3>4+</h3><p>Years</p></div>
-    </div>
-
-    <div class="section-header">Technical Arsenal</div>
+    <div class="section-header">Technical Mastery</div>
     <div class="skills-box">
         <div class="skill">
-            <div class="skill-info"><span>System Obfuscation</span> <span>94%</span></div>
+            <div class="skill-info"><span>Lua (Advanced)</span> <span>97%</span></div>
+            <div class="progress-bg"><div class="progress-fill" style="width: 97%;"></div></div>
+        </div>
+        <div class="skill">
+            <div class="skill-info"><span>Luau (Roblox)</span> <span>94%</span></div>
             <div class="progress-bg"><div class="progress-fill" style="width: 94%;"></div></div>
         </div>
         <div class="skill">
-            <div class="skill-info"><span>UI/UX Interface Craft</span> <span>91%</span></div>
-            <div class="progress-bg"><div class="progress-fill" style="width: 91%;"></div></div>
+            <div class="skill-info"><span>HTML Design</span> <span>73%</span></div>
+            <div class="progress-bg"><div class="progress-fill" style="width: 73%;"></div></div>
         </div>
         <div class="skill">
-            <div class="skill-info"><span>Advanced Scripting (Lua/JS)</span> <span>97%</span></div>
-            <div class="progress-bg"><div class="progress-fill" style="width: 97%;"></div></div>
+            <div class="skill-info"><span>JavaScript</span> <span>66%</span></div>
+            <div class="progress-bg"><div class="progress-fill" style="width: 66%;"></div></div>
         </div>
     </div>
 
-    <div class="section-header">The Journey</div>
+    <div class="section-header">The Evolution</div>
     <div class="timeline-container">
         <div class="event">
-            <div class="event-year">2023</div>
-            <div class="event-title">Nova Era Launches</div>
-            <div class="event-desc">First independent distribution platform with custom key security systems.</div>
-        </div>
-        <div class="event">
             <div class="event-year">2024</div>
-            <div class="event-title">Full-Stack Expansion</div>
-            <div class="event-desc">Transitioned to advanced Python and React architectures for high-performance ecosystems.</div>
+            <div class="event-title">The Game Creator</div>
+            <div class="event-desc">Sohbet, Savaş ve Parkur oyunları ile Roblox geliştiriciliğine ilk profesyonel adımlar.</div>
         </div>
         <div class="event">
-            <div class="event-year">2025 - NOW</div>
-            <div class="event-title">Elite Hub Protocol</div>
-            <div class="event-desc">Leading enterprise-grade security and interface design for global digital realities.</div>
+            <div class="event-year">2025 (SEPTEMBER)</div>
+            <div class="event-title">Scripting Era</div>
+            <div class="event-desc">Exploit dünyasına giriş. Oyun mekaniklerini manipüle eden gelişmiş scriptlerin geliştirilmesi.</div>
+        </div>
+        <div class="event">
+            <div class="event-year">2026 - NOW</div>
+            <div class="event-title">Mastery & Official Support</div>
+            <div class="event-desc">Resmi oyunlar için yüksek yetenekli scriptler ve ileri düzey güvenlik mimarileri.</div>
         </div>
     </div>
 
-    <div class="action-card">
-        <h2>Ready to Connect?</h2>
-        <a href="https://discord.gg/DbAU5Z6HPd" target="_blank" class="btn-main">
-            <i class="fa-brands fa-discord"></i> REACH OUT ON DISCORD
+    <div class="section-header">Connect With Me</div>
+    <div class="social-stack">
+        <a href="https://discord.gg/DbAU5Z6HPd" class="social-link discord-btn" target="_blank">
+            <i class="fa-brands fa-discord"></i> Discord Server
+        </a>
+        <a href="BURAYA_YT_LINKI_GELECEK" class="social-link yt-btn" target="_blank">
+            <i class="fa-brands fa-youtube"></i> YouTube Channel
+        </a>
+        <a href="BURAYA_TT_LINKI_GELECEK" class="social-link tt-btn" target="_blank">
+            <i class="fa-brands fa-tiktok"></i> TikTok Profile
+        </a>
+        <a href="BURAYA_ROBLOX_LINKI_GELECEK" class="social-link rbx-btn" target="_blank">
+            <i class="fa-solid fa-gamepad"></i> Roblox Profile
         </a>
     </div>
 
-    <div class="footer-tag">DESIGNED BY YUSUF &copy; 2026</div>
+    <div class="footer-tag">DEVELOPED BY YUSUF &copy; 2026</div>
 </div>
 
 </body>
 </html>
-
