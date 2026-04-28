@@ -1,205 +1,207 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>YUSUF | Master Script Architect</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Yusuf | Geliştirici Portfolyosu</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Syncopate:wght@400;700&family=Inter:wght@300;600;900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Syncopate:wght@400;700&family=Inter:wght@300;500;700;900&display=swap');
 
         :root {
             --primary: #ff0000;
-            --primary-glow: rgba(255, 0, 0, 0.7);
-            --bg-black: #050505;
-            --panel-bg: rgba(13, 13, 13, 0.96);
-            --border: rgba(255, 0, 0, 0.3);
+            --primary-glow: rgba(255, 0, 0, 0.6);
+            --bg: #050505;
+            --card-bg: rgba(15, 15, 15, 0.98);
+            --border: rgba(255, 0, 0, 0.2);
         }
 
+        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
         html { scroll-behavior: smooth; }
         body {
-            background-color: var(--bg-black); color: #fff; font-family: 'Inter', sans-serif;
-            margin: 0; padding: 0; overflow-x: hidden;
-            background: radial-gradient(circle at top, #200000 0%, #050505 100%);
+            background-color: var(--bg); color: #fff;
+            font-family: 'Inter', sans-serif; line-height: 1.6;
+            overflow-x: hidden; background: radial-gradient(circle at top, #1a0000 0%, #050505 100%);
         }
 
-        /* --- CYBER NAV MENU --- */
-        .nav-toggle {
-            position: fixed; top: 30px; left: 30px; z-index: 1001;
-            cursor: pointer; background: var(--panel-bg);
-            width: 55px; height: 55px; border-radius: 15px;
-            border: 1px solid var(--border); display: flex; align-items: center; justify-content: center;
-            box-shadow: 0 0 20px rgba(255,0,0,0.15); transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        /* --- MOBİL UYUMLU NAVİGASYON --- */
+        .menu-btn {
+            position: fixed; top: 20px; left: 20px; z-index: 1001;
+            width: 45px; height: 45px; background: var(--card-bg);
+            border: 1px solid var(--border); border-radius: 12px;
+            display: flex; align-items: center; justify-content: center;
+            cursor: pointer; transition: 0.3s;
         }
-        .nav-toggle:hover { transform: rotate(90deg) scale(1.1); border-color: var(--primary); }
+        .menu-btn:active { transform: scale(0.9); }
 
-        .sidebar {
-            position: fixed; top: 0; left: -320px; width: 300px; height: 100%;
-            background: rgba(8, 8, 8, 0.98); z-index: 1000;
-            border-right: 1px solid var(--border); backdrop-filter: blur(25px);
-            display: flex; flex-direction: column; padding: 120px 40px; transition: 0.5s;
+        .nav-overlay {
+            position: fixed; inset: 0; background: rgba(0,0,0,0.95);
+            backdrop-filter: blur(15px); z-index: 1000;
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+            gap: 25px; transform: translateX(-100%); transition: 0.5s cubic-bezier(0.7, 0, 0.3, 1);
         }
-        .sidebar.active { left: 0; box-shadow: 20px 0 80px rgba(0,0,0,0.9); }
-        .sidebar a {
-            font-family: 'Syncopate'; font-size: 0.8rem; color: #666;
-            text-decoration: none; margin-bottom: 35px; letter-spacing: 4px;
-            transition: 0.3s; display: flex; align-items: center; gap: 15px;
+        .nav-overlay.active { transform: translateX(0); }
+        .nav-overlay a {
+            font-family: 'Syncopate'; font-size: 1.2rem; color: #fff;
+            text-decoration: none; letter-spacing: 4px; transition: 0.3s;
         }
-        .sidebar a:hover { color: var(--primary); transform: translateX(10px); }
+        .nav-overlay a:hover { color: var(--primary); }
 
-        /* --- BACKGROUND --- */
-        .stars { position: fixed; inset: 0; z-index: -1; opacity: 0.25; background: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/123163/stars.png'); animation: slide 100s linear infinite; }
-        @keyframes slide { from { background-position: 0 0; } to { background-position: 10000px 5000px; } }
+        /* --- ARKA PLAN EFEKTİ --- */
+        .stars { position: fixed; inset: 0; z-index: -1; opacity: 0.2; background: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/123163/stars.png'); }
 
-        .container { max-width: 550px; margin: 0 auto; padding: 120px 20px 60px; }
+        .content-wrapper { width: 92%; max-width: 500px; margin: 80px auto 40px; }
 
-        /* --- MASTER CARD --- */
-        .glass-panel {
-            background: var(--panel-bg); border: 1px solid var(--border);
-            border-radius: 45px; padding: 60px 35px;
-            box-shadow: 0 30px 100px rgba(0,0,0,1); position: relative;
+        /* --- ANA PANEL --- */
+        .glass-card {
+            background: var(--card-bg); border: 1px solid var(--border);
+            border-radius: 35px; padding: 40px 25px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.8);
         }
 
-        /* --- HERO --- */
-        .hero { text-align: center; margin-bottom: 60px; }
-        .profile-img { width: 120px; height: 120px; margin: 0 auto 25px; position: relative; }
-        .profile-img img { width: 100%; height: 100%; border-radius: 30px; border: 2px solid var(--primary); object-fit: cover; }
-        .profile-img::before { content: ''; position: absolute; inset: -12px; border: 2px solid var(--primary); border-radius: 35px; animation: pulse 2s infinite; opacity: 0.5; }
-        @keyframes pulse { 0% { transform: scale(1); opacity: 0.5; } 100% { transform: scale(1.3); opacity: 0; } }
+        /* --- HEADER --- */
+        .profile { text-align: center; margin-bottom: 50px; }
+        .avatar { width: 110px; height: 110px; margin: 0 auto 20px; position: relative; }
+        .avatar img { width: 100%; height: 100%; border-radius: 28px; border: 2px solid var(--primary); object-fit: cover; }
+        .avatar::after { content: ''; position: absolute; inset: -10px; border: 2px solid var(--primary); border-radius: 35px; animation: pulse 2s infinite; opacity: 0.4; }
+        @keyframes pulse { 0% { transform: scale(1); opacity: 0.4; } 100% { transform: scale(1.3); opacity: 0; } }
 
-        .shimmer-name {
-            font-family: 'Syncopate'; font-size: 2.4rem; letter-spacing: 10px; font-weight: 700;
-            background: linear-gradient(90deg, #fff, #ff0000, #fff);
-            background-size: 200% auto; -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-            animation: textFlow 3s linear infinite; margin: 0;
+        .name { font-family: 'Syncopate'; font-size: 2rem; letter-spacing: 8px; font-weight: 700; margin: 0; }
+        .title { font-size: 0.65rem; color: #666; letter-spacing: 3px; text-transform: uppercase; margin-top: 10px; }
+
+        /* --- BÖLÜM BAŞLIKLARI --- */
+        .section-label {
+            font-family: 'Syncopate'; font-size: 0.7rem; color: var(--primary);
+            display: flex; align-items: center; gap: 10px; margin: 45px 0 20px; letter-spacing: 3px;
         }
-        @keyframes textFlow { to { background-position: 200% center; } }
+        .section-label::after { content: ''; height: 1px; flex-grow: 1; background: var(--border); }
 
-        /* --- SECTIONS --- */
-        .tag-title { 
-            font-family: 'Syncopate'; font-size: 0.75rem; color: var(--primary); 
-            display: flex; align-items: center; gap: 10px; margin: 50px 0 25px; letter-spacing: 4px;
-        }
-        .tag-title::after { content: ''; height: 1px; flex-grow: 1; background: var(--border); }
+        /* --- YETENEKLER --- */
+        .skill-item { margin-bottom: 18px; }
+        .skill-info { display: flex; justify-content: space-between; font-size: 0.8rem; font-weight: 600; margin-bottom: 6px; }
+        .bar-track { width: 100%; height: 6px; background: #111; border-radius: 10px; overflow: hidden; }
+        .bar-fill { height: 100%; background: linear-gradient(90deg, #8b0000, #ff0000); box-shadow: 0 0 12px var(--primary-glow); }
 
-        /* SKILLS (Net Rakamlar) */
-        .skill-box { margin-bottom: 22px; }
-        .skill-header { display: flex; justify-content: space-between; font-size: 0.85rem; font-weight: 600; margin-bottom: 8px; color: #eee; }
-        .progress-track { width: 100%; height: 8px; background: #111; border-radius: 20px; border: 1px solid rgba(255,0,0,0.1); }
-        .progress-bar { height: 100%; background: linear-gradient(90deg, #800000, #ff0000); box-shadow: 0 0 15px var(--primary-glow); border-radius: 20px; }
+        /* --- GEÇMİŞ (TIMELINE) --- */
+        .timeline { border-left: 1px solid var(--border); padding-left: 20px; margin-left: 10px; }
+        .time-box { position: relative; margin-bottom: 30px; }
+        .time-box::before { content: ''; position: absolute; left: -26px; top: 5px; width: 10px; height: 10px; border-radius: 50%; background: var(--primary); }
+        .time-date { font-weight: 800; font-size: 0.85rem; color: #fff; margin-bottom: 4px; }
+        .time-text { font-size: 0.75rem; color: #888; line-height: 1.5; }
 
-        /* CHRONOLOGY */
-        .timeline { border-left: 2px solid var(--border); padding-left: 25px; margin-left: 10px; }
-        .t-entry { position: relative; margin-bottom: 40px; }
-        .t-entry::before { content: ''; position: absolute; left: -32px; top: 0; width: 12px; height: 12px; border-radius: 50%; background: var(--primary); box-shadow: 0 0 15px var(--primary); }
-        .t-head { font-family: 'Syncopate'; font-size: 0.85rem; color: #fff; margin-bottom: 5px; }
-        .t-body { font-size: 0.8rem; color: #888; line-height: 1.6; }
+        /* --- EKSTRA BÖLÜMLER (DOLDURMA) --- */
+        .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 10px; }
+        .info-box { background: rgba(255,255,255,0.02); border: 1px solid var(--border); padding: 15px; border-radius: 15px; text-align: center; }
+        .info-box span { display: block; font-size: 1.1rem; font-weight: 900; color: var(--primary); }
+        .info-box p { font-size: 0.6rem; color: #555; text-transform: uppercase; margin-top: 4px; }
 
-        /* --- SOCIAL BUTTONS (PREVIOUS STYLE) --- */
-        .glow-btn {
-            background: rgba(255, 255, 255, 0.03); border: 1px solid var(--border);
-            border-radius: 25px; padding: 22px; margin-bottom: 15px;
+        /* --- SOSYAL MEDYA (GELİŞTİRİLMİŞ) --- */
+        .link-card {
+            background: rgba(255,255,255,0.03); border: 1px solid var(--border);
+            border-radius: 20px; padding: 18px 22px; margin-bottom: 12px;
             display: flex; align-items: center; justify-content: space-between;
-            text-decoration: none; color: #fff; transition: 0.4s ease;
+            text-decoration: none; color: #fff; transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
-        .glow-btn:hover {
-            background: var(--primary); border-color: #fff;
-            transform: translateY(-5px) scale(1.02);
-            box-shadow: 0 15px 40px var(--primary-glow);
+        .link-card:hover, .link-card:active {
+            background: var(--primary); transform: translateY(-3px);
+            box-shadow: 0 10px 25px var(--primary-glow);
         }
-        .btn-left { display: flex; align-items: center; gap: 15px; font-weight: 900; letter-spacing: 1px; }
-        .glow-btn i { font-size: 1.5rem; }
+        .link-content { display: flex; align-items: center; gap: 15px; font-weight: 700; font-size: 0.9rem; }
+        .link-card i { font-size: 1.4rem; }
 
-        .footer-info { text-align: center; font-size: 0.6rem; color: #333; margin-top: 60px; letter-spacing: 5px; }
+        .footer { text-align: center; font-size: 0.6rem; color: #333; margin-top: 50px; letter-spacing: 4px; }
     </style>
 </head>
 <body>
 
 <div class="stars"></div>
 
-<div class="nav-toggle" onclick="toggleNav()">
-    <i class="fa-solid fa-bars-staggered" style="font-size: 1.5rem; color: var(--primary);"></i>
+<div class="menu-btn" onclick="toggleNav()">
+    <i class="fa-solid fa-bars-staggered" style="color: var(--primary); font-size: 1.2rem;"></i>
 </div>
 
-<nav class="sidebar" id="sidebar">
-    <a href="#home" onclick="toggleNav()"><i class="fa-solid fa-house"></i> HOME</a>
-    <a href="#skills" onclick="toggleNav()"><i class="fa-solid fa-microchip"></i> MASTERY</a>
-    <a href="#journey" onclick="toggleNav()"><i class="fa-solid fa-route"></i> EVOLUTION</a>
-    <a href="#social" onclick="toggleNav()"><i class="fa-solid fa-network-wired"></i> NETWORK</a>
+<nav class="nav-overlay" id="nav">
+    <a href="#home" onclick="toggleNav()">Giriş</a>
+    <a href="#skills" onclick="toggleNav()">Yetenekler</a>
+    <a href="#history" onclick="toggleNav()">Gelişim</a>
+    <a href="#links" onclick="toggleNav()">İletişim</a>
 </nav>
 
-<div class="container" id="home">
-    <div class="glass-panel">
+<div class="content-wrapper" id="home">
+    <div class="glass-card">
         
-        <header class="hero">
-            <div class="profile-img">
+        <header class="profile">
+            <div class="avatar">
                 <img src="https://i.hizliresim.com/r3xgxvw.gif" alt="Yusuf">
             </div>
-            <h1 class="shimmer-name">YUSUF</h1>
-            <p style="color: #444; font-size: 0.6rem; letter-spacing: 5px; margin-top: 15px;">AUTHORIZED DIGITAL ARCHITECT</p>
+            <h1 class="name">YUSUF</h1>
+            <p class="title">Yazılım Geliştirici & Script Uzmanı</p>
         </header>
 
-        <div class="tag-title" id="skills">TECHNICAL ARSENAL</div>
-        <div class="skill-box">
-            <div class="skill-header"><span>LUA CORE ENGINE</span> <span>97%</span></div>
-            <div class="progress-track"><div class="progress-bar" style="width: 97%;"></div></div>
-        </div>
-        <div class="skill-box">
-            <div class="skill-header"><span>ROBLOX LUAU</span> <span>94%</span></div>
-            <div class="progress-track"><div class="progress-bar" style="width: 94%;"></div></div>
-        </div>
-        <div class="skill-box">
-            <div class="skill-header"><span>HTML5 ARCHITECTURE</span> <span>73%</span></div>
-            <div class="progress-track"><div class="progress-bar" style="width: 73%;"></div></div>
-        </div>
-        <div class="skill-box">
-            <div class="skill-header"><span>JAVASCRIPT / NODE.JS</span> <span>66%</span></div>
-            <div class="progress-track"><div class="progress-bar" style="width: 66%;"></div></div>
+        <div class="info-grid">
+            <div class="info-box"><span>100+</span><p>Proje Sayısı</p></div>
+            <div class="info-box"><span>%100</span><p>Çalışma Garantisi</p></div>
         </div>
 
-        <div class="tag-title" id="journey">CHRONOLOGICAL ERA</div>
+        <div class="section-label" id="skills">UZMANLIK ALANLARI</div>
+        <div class="skill-item">
+            <div class="skill-info"><span>Lua (Gelişmiş)</span> <span>97%</span></div>
+            <div class="bar-track"><div class="bar-fill" style="width: 97%;"></div></div>
+        </div>
+        <div class="skill-item">
+            <div class="skill-info"><span>Roblox Luau</span> <span>94%</span></div>
+            <div class="bar-track"><div class="bar-fill" style="width: 94%;"></div></div>
+        </div>
+        <div class="skill-item">
+            <div class="skill-info"><span>HTML & Modern Tasarım</span> <span>73%</span></div>
+            <div class="bar-track"><div class="bar-fill" style="width: 73%;"></div></div>
+        </div>
+        <div class="skill-item">
+            <div class="skill-info"><span>JavaScript (Node.js)</span> <span>66%</span></div>
+            <div class="bar-track"><div class="bar-fill" style="width: 66%;"></div></div>
+        </div>
+
+        <div class="section-label" id="history">GELİŞİM SÜRECİ</div>
         <div class="timeline">
-            <div class="t-entry">
-                <div class="t-head">2024 // THE FOUNDATION</div>
-                <div class="t-body">Sohbet sistemleri, savaş mekanikleri ve parkur haritaları inşasıyla Roblox platformunda profesyonel geliştiriciliğe ilk adım atıldı.</div>
+            <div class="time-box">
+                <div class="time-date">2024: Oyun Geliştirme Temelleri</div>
+                <div class="time-text">Roblox platformunda ilk sohbet, savaş ve parkur mekanikleri üzerine oyunlar inşa edildi.</div>
             </div>
-            <div class="t-entry">
-                <div class="t-head">2025 SEP // SCRIPTING REVOLUTION</div>
-                <div class="t-body">Exploit dünyasına giriş. Karmaşık otomasyon scriptleri ve oyun mekaniklerini manipüle eden ileri düzey sistemler geliştirildi.</div>
+            <div class="time-box">
+                <div class="time-date">Eylül 2025: Scripting Geçişi</div>
+                <div class="time-text">Oyun mekaniklerini optimize eden ve otomasyon sağlayan ileri düzey script çalışmalarına başlandı.</div>
             </div>
-            <div class="t-entry">
-                <div class="t-head">2026 // ELITE MASTERY</div>
-                <div class="t-body">Resmi büyük oyun projeleri için yüksek yetenekli script desteği. İleri düzey güvenlik ve anti-hile aşma protokolleri.</div>
+            <div class="time-box">
+                <div class="time-date">2026: Profesyonel Hizmet</div>
+                <div class="time-text">Resmi büyük yapımlar için güvenli, performans odaklı ve yüksek yetenekli script çözümleri sunulmaya devam ediliyor.</div>
             </div>
         </div>
 
-        <div class="tag-title" id="social">SECURE CONNECTIONS</div>
-        <a href="https://discord.gg/DbAU5Z6HPd" class="glow-btn">
-            <div class="btn-left"><i class="fa-brands fa-discord"></i> DISCORD HUB</div>
-            <i class="fa-solid fa-chevron-right"></i>
+        <div class="section-label" id="links">DİJİTAL KANALLAR</div>
+        <a href="https://discord.gg/DbAU5Z6HPd" class="link-card" target="_blank">
+            <div class="link-content"><i class="fa-brands fa-discord" style="color: #5865F2;"></i> Discord Sunucum</div>
+            <i class="fa-solid fa-arrow-right-long" style="font-size: 0.8rem; opacity: 0.3;"></i>
         </a>
-        <a href="#" class="glow-btn">
-            <div class="btn-left"><i class="fa-brands fa-youtube"></i> YOUTUBE CHANNEL</div>
-            <i class="fa-solid fa-chevron-right"></i>
+        <a href="#" class="link-card" target="_blank">
+            <div class="link-content"><i class="fa-brands fa-youtube" style="color: #FF0000;"></i> YouTube Kanalım</div>
+            <i class="fa-solid fa-arrow-right-long" style="font-size: 0.8rem; opacity: 0.3;"></i>
         </a>
-        <a href="#" class="glow-btn">
-            <div class="btn-left"><i class="fa-brands fa-tiktok"></i> TIKTOK FEED</div>
-            <i class="fa-solid fa-chevron-right"></i>
+        <a href="#" class="link-card" target="_blank">
+            <div class="link-content"><i class="fa-brands fa-tiktok"></i> TikTok Profilim</div>
+            <i class="fa-solid fa-arrow-right-long" style="font-size: 0.8rem; opacity: 0.3;"></i>
         </a>
-        <a href="#" class="glow-btn">
-            <div class="btn-left"><i class="fa-solid fa-cube"></i> ROBLOX PROFILE</div>
-            <i class="fa-solid fa-chevron-right"></i>
+        <a href="#" class="link-card" target="_blank">
+            <div class="link-content"><i class="fa-solid fa-cube" style="color: #777;"></i> Roblox Profilim</div>
+            <i class="fa-solid fa-arrow-right-long" style="font-size: 0.8rem; opacity: 0.3;"></i>
         </a>
 
-        <div class="footer-info">
-            YUSUF SYSTEMS &copy; ALL RIGHTS RESERVED 2026
-        </div>
+        <p class="footer">YUSUF &copy; 2026 // TASARIM VE KODLAMA</p>
     </div>
 </div>
 
 <script>
     function toggleNav() {
-        document.getElementById('sidebar').classList.toggle('active');
+        document.getElementById('nav').classList.toggle('active');
     }
 </script>
 
