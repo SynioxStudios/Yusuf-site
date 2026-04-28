@@ -10,10 +10,16 @@
 
         :root {
             --primary: #ff0000;
-            --primary-glow: rgba(255, 0, 0, 0.6);
-            --bg-black: #050505;
-            --card-bg: rgba(12, 12, 12, 0.98);
-            --border-color: rgba(255, 0, 0, 0.2);
+            --primary-glow: rgba(255, 0, 0, 0.7);
+            --bg-black: #020202;
+            --card-bg: rgba(8, 8, 8, 0.95);
+            --border: rgba(255, 0, 0, 0.3);
+        }
+
+        /* --- DYNAMIC BACKGROUND CANVAS --- */
+        #bg-canvas {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            z-index: -1; background: #000;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
@@ -21,19 +27,23 @@
         body {
             background-color: var(--bg-black); color: #fff;
             font-family: 'Inter', sans-serif; overflow-x: hidden;
-            background: radial-gradient(circle at center, #1a0000 0%, #050505 100%);
         }
 
-        /* --- MOBILE NAVIGATION --- */
+        /* --- SCROLL REVEAL ANIMATION --- */
+        .reveal {
+            opacity: 0; transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+
+        /* --- NAVIGATION --- */
         .nav-toggle {
             position: fixed; top: 20px; right: 20px; z-index: 1001;
             width: 50px; height: 50px; background: var(--card-bg);
-            border: 1px solid var(--border-color); border-radius: 15px;
+            border: 1px solid var(--border); border-radius: 15px;
             display: flex; align-items: center; justify-content: center;
             cursor: pointer; transition: 0.3s;
         }
-        .nav-toggle:active { transform: scale(0.9); }
-
         .full-nav {
             position: fixed; inset: 0; background: rgba(0,0,0,0.98);
             z-index: 1000; display: flex; flex-direction: column;
@@ -45,18 +55,18 @@
             font-family: 'Syncopate'; font-size: 1.2rem; color: #fff;
             text-decoration: none; letter-spacing: 5px; transition: 0.3s;
         }
-        .full-nav a:hover { color: var(--primary); }
 
-        /* --- CONTENT WRAPPER --- */
+        /* --- WRAPPER --- */
         .main-wrapper { width: 92%; max-width: 500px; margin: 80px auto 40px; }
 
         .glass-panel {
-            background: var(--card-bg); border: 1px solid var(--border-color);
+            background: var(--card-bg); border: 1px solid var(--border);
             border-radius: 40px; padding: 50px 25px;
             box-shadow: 0 40px 120px rgba(0,0,0,1);
+            backdrop-filter: blur(10px);
         }
 
-        /* --- HEADER --- */
+        /* --- HERO --- */
         .hero-section { text-align: center; margin-bottom: 50px; }
         .pfp-container { width: 120px; height: 120px; margin: 0 auto 25px; position: relative; }
         .pfp-container img { width: 100%; height: 100%; border-radius: 35px; border: 2px solid var(--primary); object-fit: cover; }
@@ -66,17 +76,16 @@
         .name-title { font-family: 'Syncopate'; font-size: 2.2rem; letter-spacing: 12px; font-weight: 700; margin: 0; color: #fff; }
         .role-desc { font-size: 0.65rem; color: #555; letter-spacing: 4px; text-transform: uppercase; margin-top: 15px; font-weight: 900; }
 
-        /* --- DASHBOARD STATS --- */
+        /* --- STATS --- */
         .grid-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 45px; }
-        .stat-card { background: rgba(255,255,255,0.02); border: 1px solid var(--border-color); padding: 25px; border-radius: 25px; text-align: center; }
+        .stat-card { background: rgba(255,255,255,0.02); border: 1px solid var(--border); padding: 25px; border-radius: 25px; text-align: center; }
         .stat-card span { display: block; font-family: 'Syncopate'; font-size: 1.3rem; color: #fff; margin-bottom: 5px; }
         .stat-card p { font-size: 0.6rem; color: var(--primary); letter-spacing: 2px; text-transform: uppercase; font-weight: 800; }
 
         /* --- SECTIONS --- */
         .label { font-family: 'Syncopate'; font-size: 0.75rem; color: var(--primary); display: flex; align-items: center; gap: 15px; margin: 50px 0 25px; letter-spacing: 5px; }
-        .label::after { content: ''; height: 1px; flex-grow: 1; background: var(--border-color); }
+        .label::after { content: ''; height: 1px; flex-grow: 1; background: var(--border); }
 
-        /* ARSENAL GRID (NEW) */
         .arsenal-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 40px; }
         .arsenal-item { background: rgba(255,0,0,0.05); padding: 15px; border-radius: 18px; border-left: 3px solid var(--primary); font-size: 0.7rem; font-weight: 700; color: #ccc; }
 
@@ -84,30 +93,26 @@
         .skill-box { margin-bottom: 22px; }
         .skill-info { display: flex; justify-content: space-between; font-size: 0.85rem; font-weight: 800; margin-bottom: 8px; color: #eee; }
         .track { width: 100%; height: 8px; background: #111; border-radius: 10px; overflow: hidden; border: 1px solid rgba(255,255,255,0.05); }
-        .fill { height: 100%; background: linear-gradient(90deg, #900, #f00); box-shadow: 0 0 15px var(--primary-glow); }
+        .fill { height: 100%; background: linear-gradient(90deg, #900, #f00); box-shadow: 0 0 15px var(--primary-glow); transition: width 1.5s cubic-bezier(0.1, 0, 0.2, 1); }
 
-        /* --- PREMIUM BUTTONS (THE FIXED STYLE) --- */
+        /* --- BUTTONS (FIXED) --- */
         .premium-btn {
-            background: rgba(255, 255, 255, 0.03); border: 1px solid var(--border-color);
+            background: rgba(255, 255, 255, 0.03); border: 1px solid var(--border);
             border-radius: 25px; padding: 22px 30px; margin-bottom: 15px;
             display: flex; align-items: center; justify-content: space-between;
-            text-decoration: none; color: #fff; transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            text-decoration: none; color: #fff; transition: 0.4s;
             position: relative;
         }
-        
         .premium-btn:hover, .premium-btn:active {
             background: var(--primary); transform: translateY(-5px);
             box-shadow: 0 15px 45px var(--primary-glow); border-color: #fff;
         }
-
         .btn-core { display: flex; align-items: center; gap: 20px; }
-        .premium-btn i { font-size: 1.6rem; color: #fff !important; display: block !important; opacity: 1 !important; visibility: visible !important; }
+        .premium-btn i { font-size: 1.6rem; color: #fff !important; display: block !important; }
         .btn-label { font-family: 'Inter'; font-weight: 900; font-size: 1rem; letter-spacing: 1px; }
-        
-        .chevron { font-size: 0.8rem !important; opacity: 0.3; }
 
         /* CHRONOLOGY */
-        .pathway { border-left: 2px solid var(--border-color); padding-left: 25px; margin-left: 12px; }
+        .pathway { border-left: 2px solid var(--border); padding-left: 25px; margin-left: 12px; }
         .milestone { position: relative; margin-bottom: 40px; }
         .milestone::before { content: ''; position: absolute; left: -32px; top: 0; width: 12px; height: 12px; border-radius: 50%; background: var(--primary); box-shadow: 0 0 15px var(--primary); }
         .m-title { font-weight: 900; font-size: 0.9rem; color: #fff; margin-bottom: 6px; }
@@ -117,6 +122,8 @@
     </style>
 </head>
 <body>
+
+<canvas id="bg-canvas"></canvas>
 
 <div class="nav-toggle" onclick="toggleMenu()">
     <i class="fa-solid fa-bars-staggered" style="color: var(--primary); font-size: 1.4rem;"></i>
@@ -132,7 +139,7 @@
 <div class="main-wrapper" id="home">
     <div class="glass-panel">
         
-        <header class="hero-section">
+        <header class="hero-section reveal">
             <div class="pfp-container">
                 <img src="https://i.hizliresim.com/r3xgxvw.gif" alt="Yusuf">
             </div>
@@ -140,95 +147,149 @@
             <p class="role-desc">Elite Systems & Script Architect</p>
         </header>
 
-        <div class="grid-stats">
+        <div class="grid-stats reveal">
             <div class="stat-card"><span>+50</span><p>Projects</p></div>
             <div class="stat-card"><span>100%</span><p>Uptime</p></div>
         </div>
 
-        <div class="label" id="arsenal">CORE CAPABILITIES</div>
-        <div class="arsenal-grid">
-            <div class="arsenal-item">AUTOMATION</div>
-            <div class="arsenal-item">GAME SECURITY</div>
-            <div class="arsenal-item">UI/UX DESIGN</div>
-            <div class="arsenal-item">API SYSTEMS</div>
-        </div>
-
-        <div class="label" id="mastery">TECHNICAL MASTERY</div>
-        <div class="skill-box">
-            <div class="skill-info"><span>LUA / LUAU ENGINE</span> <span>97%</span></div>
-            <div class="track"><div class="fill" style="width: 97%;"></div></div>
-        </div>
-        <div class="skill-box">
-            <div class="skill-info"><span>ROBLOX ARCHITECTURE</span> <span>94%</span></div>
-            <div class="track"><div class="fill" style="width: 94%;"></div></div>
-        </div>
-        <div class="skill-row">
-            <div class="skill-info"><span>FRONT-END DEV</span> <span>73%</span></div>
-            <div class="track"><div class="fill" style="width: 73%;"></div></div>
-        </div>
-        <div class="skill-row">
-            <div class="skill-info"><span>BACK-END (NODE.JS)</span> <span>66%</span></div>
-            <div class="track"><div class="fill" style="width: 66%;"></div></div>
-        </div>
-
-        <div class="label">EVOLUTION PATH</div>
-        <div class="pathway">
-            <div class="milestone">
-                <div class="m-title">2024: Structural Phase</div>
-                <div class="m-desc">Engineered complex game environments and competitive mechanics on the Roblox engine.</div>
-            </div>
-            <div class="milestone">
-                <div class="m-title">SEP 2025: Scripting Revolution</div>
-                <div class="m-desc">Launched Syniox Hub. Focused on enterprise-grade script execution and game automation.</div>
-            </div>
-            <div class="milestone">
-                <div class="m-title">2026: Elite Expansion</div>
-                <div class="m-desc">Dominating the digital reality space with high-performance tools and secure infrastructures.</div>
+        <div class="reveal">
+            <div class="label" id="arsenal">CORE CAPABILITIES</div>
+            <div class="arsenal-grid">
+                <div class="arsenal-item">AUTOMATION</div>
+                <div class="arsenal-item">GAME SECURITY</div>
+                <div class="arsenal-item">UI/UX DESIGN</div>
+                <div class="arsenal-item">API SYSTEMS</div>
             </div>
         </div>
 
-        <div class="label" id="social">SECURE CONNECTIONS</div>
-        
-        <a href="https://discord.gg/DbAU5Z6HPd" class="premium-btn" target="_blank">
-            <div class="btn-core">
-                <i class="fa-brands fa-discord" style="color: #5865F2;"></i>
-                <span class="btn-label">DISCORD SERVER</span>
+        <div class="reveal">
+            <div class="label" id="mastery">TECHNICAL MASTERY</div>
+            <div class="skill-box">
+                <div class="skill-info"><span>LUA / LUAU ENGINE</span> <span>97%</span></div>
+                <div class="track"><div class="fill" style="width: 97%;"></div></div>
             </div>
-            <i class="fa-solid fa-chevron-right chevron"></i>
-        </a>
+            <div class="skill-box">
+                <div class="skill-info"><span>ROBLOX ARCHITECTURE</span> <span>94%</span></div>
+                <div class="track"><div class="fill" style="width: 94%;"></div></div>
+            </div>
+            <div class="skill-box">
+                <div class="skill-info"><span>FRONT-END DEV</span> <span>73%</span></div>
+                <div class="track"><div class="fill" style="width: 73%;"></div></div>
+            </div>
+        </div>
 
-        <a href="#" class="premium-btn" target="_blank">
-            <div class="btn-core">
-                <i class="fa-brands fa-youtube" style="color: #FF0000;"></i>
-                <span class="btn-label">YOUTUBE CHANNEL</span>
+        <div class="reveal">
+            <div class="label">EVOLUTION PATH</div>
+            <div class="pathway">
+                <div class="milestone">
+                    <div class="m-title">2024: Structural Phase</div>
+                    <div class="m-desc">Engineered complex game environments and competitive mechanics on the Roblox engine.</div>
+                </div>
+                <div class="milestone">
+                    <div class="m-title">SEP 2025: Scripting Revolution</div>
+                    <div class="m-desc">Launched Syniox Hub. Focused on enterprise-grade script execution.</div>
+                </div>
             </div>
-            <i class="fa-solid fa-chevron-right chevron"></i>
-        </a>
+        </div>
 
-        <a href="#" class="premium-btn" target="_blank">
-            <div class="btn-core">
-                <i class="fa-brands fa-tiktok"></i>
-                <span class="btn-label">TIKTOK FEED</span>
-            </div>
-            <i class="fa-solid fa-chevron-right chevron"></i>
-        </a>
+        <div class="reveal" id="social">
+            <div class="label">SECURE CONNECTIONS</div>
+            
+            <a href="https://discord.gg/DbAU5Z6HPd" class="premium-btn" target="_blank">
+                <div class="btn-core">
+                    <i class="fa-brands fa-discord" style="color: #5865F2;"></i>
+                    <span class="btn-label">DISCORD SERVER</span>
+                </div>
+                <i class="fa-solid fa-chevron-right"></i>
+            </a>
 
-        <a href="#" class="premium-btn" target="_blank">
-            <div class="btn-core">
-                <i class="fa-solid fa-cube" style="color: #888;"></i>
-                <span class="btn-label">ROBLOX PROFILE</span>
-            </div>
-            <i class="fa-solid fa-chevron-right chevron"></i>
-        </a>
+            <a href="#" class="premium-btn" target="_blank">
+                <div class="btn-core">
+                    <i class="fa-brands fa-youtube" style="color: #FF0000;"></i>
+                    <span class="btn-label">YOUTUBE CHANNEL</span>
+                </div>
+                <i class="fa-solid fa-chevron-right"></i>
+            </a>
+
+            <a href="#" class="premium-btn" target="_blank">
+                <div class="btn-core">
+                    <i class="fa-brands fa-tiktok"></i>
+                    <span class="btn-label">TIKTOK FEED</span>
+                </div>
+                <i class="fa-solid fa-chevron-right"></i>
+            </a>
+        </div>
 
         <div class="footer-tag">YUSUF &copy; 2026 // BEYOND THE LIMITS</div>
     </div>
 </div>
 
 <script>
-    function toggleMenu() {
-        document.getElementById('menu').classList.toggle('active');
+    // --- BACKGROUND CANVAS ANIMATION ---
+    const canvas = document.getElementById('bg-canvas');
+    const ctx = canvas.getContext('2d');
+    let particles = [];
+
+    function resize() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
     }
+
+    class Particle {
+        constructor() {
+            this.x = Math.random() * canvas.width;
+            this.y = Math.random() * canvas.height;
+            this.size = Math.random() * 2 + 1;
+            this.speedX = Math.random() * 1 - 0.5;
+            this.speedY = Math.random() * 1 - 0.5;
+        }
+        update() {
+            this.x += this.speedX;
+            this.y += this.speedY;
+            if (this.x > canvas.width) this.x = 0;
+            if (this.x < 0) this.x = canvas.width;
+            if (this.y > canvas.height) this.y = 0;
+            if (this.y < 0) this.y = canvas.height;
+        }
+        draw() {
+            ctx.fillStyle = 'rgba(255, 0, 0, 0.4)';
+            ctx.beginPath(); ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2); ctx.fill();
+        }
+    }
+
+    function init() {
+        resize();
+        particles = [];
+        for (let i = 0; i < 60; i++) particles.push(new Particle());
+    }
+
+    function animate() {
+        ctx.fillStyle = 'rgba(2, 2, 2, 0.1)';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        
+        // Draw Grid
+        ctx.strokeStyle = 'rgba(255, 0, 0, 0.05)';
+        ctx.lineWidth = 1;
+        for(let i=0; i<canvas.width; i+=40) { ctx.beginPath(); ctx.moveTo(i,0); ctx.lineTo(i,canvas.height); ctx.stroke(); }
+        for(let i=0; i<canvas.height; i+=40) { ctx.beginPath(); ctx.moveTo(0,i); ctx.lineTo(canvas.width,i); ctx.stroke(); }
+
+        particles.forEach(p => { p.update(); p.draw(); });
+        requestAnimationFrame(animate);
+    }
+
+    window.addEventListener('resize', init);
+    init(); animate();
+
+    // --- SCROLL REVEAL LOGIC ---
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) entry.target.classList.add('active');
+        });
+    }, { threshold: 0.15 });
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    function toggleMenu() { document.getElementById('menu').classList.toggle('active'); }
 </script>
 
 </body>
