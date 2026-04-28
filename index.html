@@ -1,201 +1,202 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Yusuf | Geliştirici Portfolyosu</title>
+    <title>YUSUF | Digital Architect Portfolio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Syncopate:wght@400;700&family=Inter:wght@300;500;700;900&display=swap');
 
         :root {
             --primary: #ff0000;
-            --primary-glow: rgba(255, 0, 0, 0.6);
-            --bg: #050505;
-            --card-bg: rgba(15, 15, 15, 0.98);
-            --border: rgba(255, 0, 0, 0.2);
+            --primary-glow: rgba(255, 0, 0, 0.7);
+            --bg-black: #050505;
+            --glass-bg: rgba(12, 12, 12, 0.97);
+            --border: rgba(255, 0, 0, 0.25);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
         html { scroll-behavior: smooth; }
         body {
-            background-color: var(--bg); color: #fff;
-            font-family: 'Inter', sans-serif; line-height: 1.6;
-            overflow-x: hidden; background: radial-gradient(circle at top, #1a0000 0%, #050505 100%);
+            background-color: var(--bg-black); color: #fff;
+            font-family: 'Inter', sans-serif; overflow-x: hidden;
+            background: radial-gradient(circle at top, #250000 0%, #050505 100%);
         }
 
-        /* --- MOBİL UYUMLU NAVİGASYON --- */
-        .menu-btn {
-            position: fixed; top: 20px; left: 20px; z-index: 1001;
-            width: 45px; height: 45px; background: var(--card-bg);
-            border: 1px solid var(--border); border-radius: 12px;
+        /* --- FLAWLESS MOBILE NAVIGATION --- */
+        .nav-btn {
+            position: fixed; top: 25px; left: 25px; z-index: 1001;
+            width: 50px; height: 50px; background: var(--glass-bg);
+            border: 1px solid var(--border); border-radius: 15px;
             display: flex; align-items: center; justify-content: center;
-            cursor: pointer; transition: 0.3s;
+            cursor: pointer; transition: 0.4s; box-shadow: 0 0 20px rgba(0,0,0,0.5);
         }
-        .menu-btn:active { transform: scale(0.9); }
+        .nav-btn:active { transform: scale(0.9) rotate(90deg); }
 
-        .nav-overlay {
-            position: fixed; inset: 0; background: rgba(0,0,0,0.95);
-            backdrop-filter: blur(15px); z-index: 1000;
+        .side-overlay {
+            position: fixed; inset: 0; background: rgba(0,0,0,0.96);
+            backdrop-filter: blur(20px); z-index: 1000;
             display: flex; flex-direction: column; justify-content: center; align-items: center;
-            gap: 25px; transform: translateX(-100%); transition: 0.5s cubic-bezier(0.7, 0, 0.3, 1);
+            gap: 30px; transform: translateX(-100%); transition: 0.6s cubic-bezier(0.8, 0, 0.2, 1);
         }
-        .nav-overlay.active { transform: translateX(0); }
-        .nav-overlay a {
-            font-family: 'Syncopate'; font-size: 1.2rem; color: #fff;
-            text-decoration: none; letter-spacing: 4px; transition: 0.3s;
+        .side-overlay.active { transform: translateX(0); }
+        .side-overlay a {
+            font-family: 'Syncopate'; font-size: 1.3rem; color: #fff;
+            text-decoration: none; letter-spacing: 5px; transition: 0.3s;
         }
-        .nav-overlay a:hover { color: var(--primary); }
+        .side-overlay a:hover { color: var(--primary); text-shadow: 0 0 10px var(--primary); }
 
-        /* --- ARKA PLAN EFEKTİ --- */
-        .stars { position: fixed; inset: 0; z-index: -1; opacity: 0.2; background: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/123163/stars.png'); }
+        /* --- BACKGROUND --- */
+        .background-fx { position: fixed; inset: 0; z-index: -1; opacity: 0.2; background: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/123163/stars.png'); }
 
-        .content-wrapper { width: 92%; max-width: 500px; margin: 80px auto 40px; }
+        .main-container { width: 92%; max-width: 520px; margin: 100px auto 50px; }
 
-        /* --- ANA PANEL --- */
-        .glass-card {
-            background: var(--card-bg); border: 1px solid var(--border);
-            border-radius: 35px; padding: 40px 25px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.8);
+        /* --- THE MASTER PANEL --- */
+        .master-card {
+            background: var(--glass-bg); border: 1px solid var(--border);
+            border-radius: 40px; padding: 50px 25px;
+            box-shadow: 0 30px 100px rgba(0,0,0,1); position: relative;
         }
 
-        /* --- HEADER --- */
-        .profile { text-align: center; margin-bottom: 50px; }
-        .avatar { width: 110px; height: 110px; margin: 0 auto 20px; position: relative; }
-        .avatar img { width: 100%; height: 100%; border-radius: 28px; border: 2px solid var(--primary); object-fit: cover; }
-        .avatar::after { content: ''; position: absolute; inset: -10px; border: 2px solid var(--primary); border-radius: 35px; animation: pulse 2s infinite; opacity: 0.4; }
-        @keyframes pulse { 0% { transform: scale(1); opacity: 0.4; } 100% { transform: scale(1.3); opacity: 0; } }
+        /* --- HERO SECTION --- */
+        .hero { text-align: center; margin-bottom: 50px; }
+        .pfp-frame { width: 120px; height: 120px; margin: 0 auto 25px; position: relative; }
+        .pfp-frame img { width: 100%; height: 100%; border-radius: 30px; border: 2px solid var(--primary); object-fit: cover; }
+        .pfp-frame::after { content: ''; position: absolute; inset: -12px; border: 2px solid var(--primary); border-radius: 38px; animation: sonar 2s infinite; opacity: 0.5; }
+        @keyframes sonar { 0% { transform: scale(1); opacity: 0.5; } 100% { transform: scale(1.3); opacity: 0; } }
 
-        .name { font-family: 'Syncopate'; font-size: 2rem; letter-spacing: 8px; font-weight: 700; margin: 0; }
-        .title { font-size: 0.65rem; color: #666; letter-spacing: 3px; text-transform: uppercase; margin-top: 10px; }
+        .glitch-name { font-family: 'Syncopate'; font-size: 2.2rem; letter-spacing: 10px; font-weight: 700; margin: 0; }
+        .sub-heading { font-size: 0.6rem; color: #555; letter-spacing: 5px; text-transform: uppercase; margin-top: 15px; font-weight: 900; }
 
-        /* --- BÖLÜM BAŞLIKLARI --- */
-        .section-label {
-            font-family: 'Syncopate'; font-size: 0.7rem; color: var(--primary);
-            display: flex; align-items: center; gap: 10px; margin: 45px 0 20px; letter-spacing: 3px;
-        }
-        .section-label::after { content: ''; height: 1px; flex-grow: 1; background: var(--border); }
+        /* --- DASHBOARD STATS --- */
+        .stat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin: 40px 0; }
+        .stat-item { background: rgba(255,0,0,0.03); border: 1px solid var(--border); padding: 20px; border-radius: 20px; text-align: center; }
+        .stat-item span { display: block; font-family: 'Syncopate'; font-size: 1.2rem; color: #fff; }
+        .stat-item p { font-size: 0.6rem; color: var(--primary); letter-spacing: 2px; text-transform: uppercase; margin-top: 5px; }
 
-        /* --- YETENEKLER --- */
-        .skill-item { margin-bottom: 18px; }
-        .skill-info { display: flex; justify-content: space-between; font-size: 0.8rem; font-weight: 600; margin-bottom: 6px; }
-        .bar-track { width: 100%; height: 6px; background: #111; border-radius: 10px; overflow: hidden; }
-        .bar-fill { height: 100%; background: linear-gradient(90deg, #8b0000, #ff0000); box-shadow: 0 0 12px var(--primary-glow); }
+        /* --- TECHNICAL SKILLS --- */
+        .label { font-family: 'Syncopate'; font-size: 0.75rem; color: var(--primary); display: flex; align-items: center; gap: 12px; margin: 50px 0 25px; letter-spacing: 4px; }
+        .label::after { content: ''; height: 1px; flex-grow: 1; background: var(--border); }
 
-        /* --- GEÇMİŞ (TIMELINE) --- */
-        .timeline { border-left: 1px solid var(--border); padding-left: 20px; margin-left: 10px; }
-        .time-box { position: relative; margin-bottom: 30px; }
-        .time-box::before { content: ''; position: absolute; left: -26px; top: 5px; width: 10px; height: 10px; border-radius: 50%; background: var(--primary); }
-        .time-date { font-weight: 800; font-size: 0.85rem; color: #fff; margin-bottom: 4px; }
-        .time-text { font-size: 0.75rem; color: #888; line-height: 1.5; }
+        .skill-row { margin-bottom: 20px; }
+        .skill-meta { display: flex; justify-content: space-between; font-size: 0.85rem; font-weight: 700; margin-bottom: 8px; color: #eee; }
+        .progress-track { width: 100%; height: 8px; background: #111; border-radius: 10px; overflow: hidden; border: 1px solid rgba(255,0,0,0.1); }
+        .progress-fill { height: 100%; background: linear-gradient(90deg, #800000, #ff0000); box-shadow: 0 0 15px var(--primary-glow); }
 
-        /* --- EKSTRA BÖLÜMLER (DOLDURMA) --- */
-        .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 10px; }
-        .info-box { background: rgba(255,255,255,0.02); border: 1px solid var(--border); padding: 15px; border-radius: 15px; text-align: center; }
-        .info-box span { display: block; font-size: 1.1rem; font-weight: 900; color: var(--primary); }
-        .info-box p { font-size: 0.6rem; color: #555; text-transform: uppercase; margin-top: 4px; }
+        /* --- WORK HISTORY (TIMELINE) --- */
+        .evolution-path { border-left: 2px solid var(--border); padding-left: 25px; margin-left: 10px; }
+        .step { position: relative; margin-bottom: 40px; }
+        .step::before { content: ''; position: absolute; left: -32px; top: 0; width: 12px; height: 12px; border-radius: 50%; background: var(--primary); box-shadow: 0 0 15px var(--primary); }
+        .step-date { font-weight: 900; font-size: 0.9rem; color: #fff; margin-bottom: 5px; }
+        .step-info { font-size: 0.8rem; color: #888; line-height: 1.6; }
 
-        /* --- SOSYAL MEDYA (GELİŞTİRİLMİŞ) --- */
-        .link-card {
-            background: rgba(255,255,255,0.03); border: 1px solid var(--border);
-            border-radius: 20px; padding: 18px 22px; margin-bottom: 12px;
+        /* --- PREMIUM BUTTONS (THE STYLE YOU WANTED) --- */
+        .premium-link {
+            background: rgba(255,255,255,0.02); border: 1px solid var(--border);
+            border-radius: 25px; padding: 22px 28px; margin-bottom: 15px;
             display: flex; align-items: center; justify-content: space-between;
-            text-decoration: none; color: #fff; transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            text-decoration: none; color: #fff; transition: 0.4s cubic-bezier(0.2, 1, 0.3, 1);
         }
-        .link-card:hover, .link-card:active {
-            background: var(--primary); transform: translateY(-3px);
-            box-shadow: 0 10px 25px var(--primary-glow);
+        .premium-link:hover, .premium-link:active {
+            background: var(--primary); transform: translateY(-5px);
+            box-shadow: 0 15px 40px var(--primary-glow); border-color: #fff;
         }
-        .link-content { display: flex; align-items: center; gap: 15px; font-weight: 700; font-size: 0.9rem; }
-        .link-card i { font-size: 1.4rem; }
+        .link-left { display: flex; align-items: center; gap: 18px; }
+        .link-left i { font-size: 1.6rem; }
+        .link-text { font-family: 'Inter'; font-weight: 900; font-size: 1rem; letter-spacing: 1px; }
 
-        .footer { text-align: center; font-size: 0.6rem; color: #333; margin-top: 50px; letter-spacing: 4px; }
+        .footer { text-align: center; font-size: 0.6rem; color: #333; margin-top: 80px; letter-spacing: 5px; }
     </style>
 </head>
 <body>
 
-<div class="stars"></div>
+<div class="background-fx"></div>
 
-<div class="menu-btn" onclick="toggleNav()">
-    <i class="fa-solid fa-bars-staggered" style="color: var(--primary); font-size: 1.2rem;"></i>
+<div class="nav-btn" onclick="toggleNav()">
+    <i class="fa-solid fa-bars-staggered" style="color: var(--primary); font-size: 1.4rem;"></i>
 </div>
 
-<nav class="nav-overlay" id="nav">
-    <a href="#home" onclick="toggleNav()">Giriş</a>
-    <a href="#skills" onclick="toggleNav()">Yetenekler</a>
-    <a href="#history" onclick="toggleNav()">Gelişim</a>
-    <a href="#links" onclick="toggleNav()">İletişim</a>
+<nav class="side-overlay" id="nav">
+    <a href="#home" onclick="toggleNav()">01 HOME</a>
+    <a href="#stats" onclick="toggleNav()">02 MASTERY</a>
+    <a href="#evolution" onclick="toggleNav()">03 JOURNEY</a>
+    <a href="#links" onclick="toggleNav()">04 CONNECT</a>
 </nav>
 
-<div class="content-wrapper" id="home">
-    <div class="glass-card">
+<div class="main-container" id="home">
+    <div class="master-card">
         
-        <header class="profile">
-            <div class="avatar">
+        <header class="hero">
+            <div class="pfp-frame">
                 <img src="https://i.hizliresim.com/r3xgxvw.gif" alt="Yusuf">
             </div>
-            <h1 class="name">YUSUF</h1>
-            <p class="title">Yazılım Geliştirici & Script Uzmanı</p>
+            <h1 class="glitch-name">YUSUF</h1>
+            <p class="sub-heading">Professional Script Architect</p>
         </header>
 
-        <div class="info-grid">
-            <div class="info-box"><span>100+</span><p>Proje Sayısı</p></div>
-            <div class="info-box"><span>%100</span><p>Çalışma Garantisi</p></div>
+        <div class="stat-grid">
+            <div class="stat-item"><span>+50</span><p>Successful Works</p></div>
+            <div class="stat-item"><span>24/7</span><p>Active Support</p></div>
         </div>
 
-        <div class="section-label" id="skills">UZMANLIK ALANLARI</div>
-        <div class="skill-item">
-            <div class="skill-info"><span>Lua (Gelişmiş)</span> <span>97%</span></div>
-            <div class="bar-track"><div class="bar-fill" style="width: 97%;"></div></div>
+        <div class="label" id="stats">TECHNICAL MASTERY</div>
+        <div class="skill-row">
+            <div class="skill-meta"><span>LUA ENGINE</span> <span>97%</span></div>
+            <div class="progress-track"><div class="progress-fill" style="width: 97%;"></div></div>
         </div>
-        <div class="skill-item">
-            <div class="skill-info"><span>Roblox Luau</span> <span>94%</span></div>
-            <div class="bar-track"><div class="bar-fill" style="width: 94%;"></div></div>
+        <div class="skill-row">
+            <div class="skill-meta"><span>ROBLOX LUAU</span> <span>94%</span></div>
+            <div class="progress-track"><div class="progress-fill" style="width: 94%;"></div></div>
         </div>
-        <div class="skill-item">
-            <div class="skill-info"><span>HTML & Modern Tasarım</span> <span>73%</span></div>
-            <div class="bar-track"><div class="bar-fill" style="width: 73%;"></div></div>
+        <div class="skill-row">
+            <div class="skill-meta"><span>WEB ARCHITECTURE</span> <span>73%</span></div>
+            <div class="progress-track"><div class="progress-fill" style="width: 73%;"></div></div>
         </div>
-        <div class="skill-item">
-            <div class="skill-info"><span>JavaScript (Node.js)</span> <span>66%</span></div>
-            <div class="bar-track"><div class="bar-fill" style="width: 66%;"></div></div>
+        <div class="skill-row">
+            <div class="skill-meta"><span>JAVASCRIPT / NODE.JS</span> <span>66%</span></div>
+            <div class="progress-track"><div class="progress-fill" style="width: 66%;"></div></div>
         </div>
 
-        <div class="section-label" id="history">GELİŞİM SÜRECİ</div>
-        <div class="timeline">
-            <div class="time-box">
-                <div class="time-date">2024: Oyun Geliştirme Temelleri</div>
-                <div class="time-text">Roblox platformunda ilk sohbet, savaş ve parkur mekanikleri üzerine oyunlar inşa edildi.</div>
+        <div class="label" id="evolution">EVOLUTION PATH</div>
+        <div class="evolution-path">
+            <div class="step">
+                <div class="step-date">2024: The Beginning</div>
+                <div class="step-info">Started professional game development on Roblox, focusing on chat systems, combat mechanics, and parkour modules.</div>
             </div>
-            <div class="time-box">
-                <div class="time-date">Eylül 2025: Scripting Geçişi</div>
-                <div class="time-text">Oyun mekaniklerini optimize eden ve otomasyon sağlayan ileri düzey script çalışmalarına başlandı.</div>
+            <div class="step">
+                <div class="step-date">SEP 2025: Advanced Scripting</div>
+                <div class="step-info">Transitioned into specialized scripting, developing high-performance automation and game optimization modules.</div>
             </div>
-            <div class="time-box">
-                <div class="time-date">2026: Profesyonel Hizmet</div>
-                <div class="time-text">Resmi büyük yapımlar için güvenli, performans odaklı ve yüksek yetenekli script çözümleri sunulmaya devam ediliyor.</div>
+            <div class="step">
+                <div class="step-date">2026: Professional Services</div>
+                <div class="step-info">Providing advanced scripting solutions for official major titles, ensuring security, performance, and elite functionality.</div>
             </div>
         </div>
 
-        <div class="section-label" id="links">DİJİTAL KANALLAR</div>
-        <a href="https://discord.gg/DbAU5Z6HPd" class="link-card" target="_blank">
-            <div class="link-content"><i class="fa-brands fa-discord" style="color: #5865F2;"></i> Discord Sunucum</div>
-            <i class="fa-solid fa-arrow-right-long" style="font-size: 0.8rem; opacity: 0.3;"></i>
-        </a>
-        <a href="#" class="link-card" target="_blank">
-            <div class="link-content"><i class="fa-brands fa-youtube" style="color: #FF0000;"></i> YouTube Kanalım</div>
-            <i class="fa-solid fa-arrow-right-long" style="font-size: 0.8rem; opacity: 0.3;"></i>
-        </a>
-        <a href="#" class="link-card" target="_blank">
-            <div class="link-content"><i class="fa-brands fa-tiktok"></i> TikTok Profilim</div>
-            <i class="fa-solid fa-arrow-right-long" style="font-size: 0.8rem; opacity: 0.3;"></i>
-        </a>
-        <a href="#" class="link-card" target="_blank">
-            <div class="link-content"><i class="fa-solid fa-cube" style="color: #777;"></i> Roblox Profilim</div>
-            <i class="fa-solid fa-arrow-right-long" style="font-size: 0.8rem; opacity: 0.3;"></i>
+        <div class="label" id="links">SECURE CHANNELS</div>
+        
+        <a href="https://discord.gg/DbAU5Z6HPd" class="premium-link" target="_blank">
+            <div class="link-left"><i class="fa-brands fa-discord" style="color: #5865F2;"></i> <span class="link-text">DISCORD SERVER</span></div>
+            <i class="fa-solid fa-chevron-right" style="opacity: 0.3;"></i>
         </a>
 
-        <p class="footer">YUSUF &copy; 2026 // TASARIM VE KODLAMA</p>
+        <a href="YOUR_YT_LINK" class="premium-link" target="_blank">
+            <div class="link-left"><i class="fa-brands fa-youtube" style="color: #FF0000;"></i> <span class="link-text">YOUTUBE CHANNEL</span></div>
+            <i class="fa-solid fa-chevron-right" style="opacity: 0.3;"></i>
+        </a>
+
+        <a href="YOUR_TT_LINK" class="premium-link" target="_blank">
+            <div class="link-left"><i class="fa-brands fa-tiktok"></i> <span class="link-text">TIKTOK PROFILE</span></div>
+            <i class="fa-solid fa-chevron-right" style="opacity: 0.3;"></i>
+        </a>
+
+        <a href="YOUR_RBX_LINK" class="premium-link" target="_blank">
+            <div class="link-left"><i class="fa-solid fa-cube" style="color: #888;"></i> <span class="link-text">ROBLOX PROFILE</span></div>
+            <i class="fa-solid fa-chevron-right" style="opacity: 0.3;"></i>
+        </a>
+
+        <p class="footer">DESIGNED & CODED BY YUSUF &copy; 2026</p>
     </div>
 </div>
 
