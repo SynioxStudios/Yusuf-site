@@ -34,6 +34,7 @@
         }
         .reveal.active { opacity: 1; transform: translateY(0); }
 
+        /* --- NAVIGATION --- */
         .nav-toggle {
             position: fixed; top: 20px; right: 20px; z-index: 1001;
             width: 50px; height: 50px; background: var(--card-bg);
@@ -50,6 +51,7 @@
         .full-nav.active { transform: translateY(0); }
         .full-nav a { font-family: 'Syncopate'; font-size: 1.2rem; color: #fff; text-decoration: none; letter-spacing: 5px; }
 
+        /* --- WRAPPER --- */
         .main-wrapper { width: 92%; max-width: 500px; margin: 80px auto 40px; }
         .glass-panel {
             background: var(--card-bg); border: 1px solid var(--border);
@@ -58,6 +60,7 @@
             backdrop-filter: blur(10px);
         }
 
+        /* --- HERO --- */
         .hero-section { text-align: center; margin-bottom: 50px; }
         .pfp-container { width: 120px; height: 120px; margin: 0 auto 25px; position: relative; }
         .pfp-container img { width: 100%; height: 100%; border-radius: 35px; border: 2px solid var(--primary); object-fit: cover; }
@@ -82,11 +85,13 @@
 
         .role-desc { font-size: 0.65rem; color: #555; letter-spacing: 4px; text-transform: uppercase; margin-top: 15px; font-weight: 900; }
 
+        /* --- STATS --- */
         .grid-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 45px; }
         .stat-card { background: rgba(255,255,255,0.02); border: 1px solid var(--border); padding: 25px; border-radius: 25px; text-align: center; }
         .stat-card span { display: block; font-family: 'Syncopate'; font-size: 1.3rem; color: #fff; margin-bottom: 5px; }
         .stat-card p { font-size: 0.6rem; color: var(--primary); letter-spacing: 2px; text-transform: uppercase; font-weight: 800; }
 
+        /* --- ARSENAL --- */
         .label { font-family: 'Syncopate'; font-size: 0.75rem; color: var(--primary); display: flex; align-items: center; gap: 15px; margin: 50px 0 25px; letter-spacing: 5px; }
         .label::after { content: ''; height: 1px; flex-grow: 1; background: var(--border); }
         
@@ -97,11 +102,13 @@
             font-weight: 900; color: #eee; letter-spacing: 1px;
         }
 
+        /* --- SKILLS (Updated with JS & HTML) --- */
         .skill-box { margin-bottom: 22px; }
         .skill-info { display: flex; justify-content: space-between; font-size: 0.85rem; font-weight: 800; margin-bottom: 8px; color: #eee; }
         .track { width: 100%; height: 8px; background: #111; border-radius: 10px; overflow: hidden; border: 1px solid rgba(255,255,255,0.05); }
         .fill { height: 100%; background: linear-gradient(90deg, #900, #f00); box-shadow: 0 0 15px var(--primary-glow); }
 
+        /* --- BUTTONS --- */
         .premium-btn {
             background: rgba(255, 255, 255, 0.03); border: 1px solid var(--border);
             border-radius: 25px; padding: 22px 30px; margin-bottom: 15px;
@@ -113,6 +120,7 @@
         .premium-btn i { font-size: 1.6rem; color: #fff !important; }
         .btn-label { font-family: 'Inter'; font-weight: 900; font-size: 1rem; letter-spacing: 1px; }
 
+        /* --- CHRONOLOGY --- */
         .pathway { border-left: 2px solid var(--border); padding-left: 25px; margin-left: 12px; }
         .milestone { position: relative; margin-bottom: 40px; }
         .milestone::before { content: ''; position: absolute; left: -32px; top: 0; width: 12px; height: 12px; border-radius: 50%; background: var(--primary); box-shadow: 0 0 15px var(--primary); }
@@ -170,12 +178,12 @@
                 <div class="track"><div class="fill" style="width: 97%;"></div></div>
             </div>
             <div class="skill-box">
-                <div class="skill-info"><span>ROBLOX ARCHITECTURE</span> <span>94%</span></div>
-                <div class="track"><div class="fill" style="width: 94%;"></div></div>
+                <div class="skill-info"><span>HTML / CSS ARCH</span> <span>73%</span></div>
+                <div class="track"><div class="fill" style="width: 73%;"></div></div>
             </div>
             <div class="skill-box">
-                <div class="skill-info"><span>FRONT-END DEV</span> <span>73%</span></div>
-                <div class="track"><div class="fill" style="width: 73%;"></div></div>
+                <div class="skill-info"><span>JAVASCRIPT CORE</span> <span>66%</span></div>
+                <div class="track"><div class="fill" style="width: 66%;"></div></div>
             </div>
         </div>
 
