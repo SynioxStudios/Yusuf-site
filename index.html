@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Yusuf Site</title>
+<meta name="description" content="Yusuf, 17, self-taught Roblox scripter and systems developer. Owner of Syniox Hub. Lua/Luau architectures, anti-exploit, automation tooling and clean web interfaces.">
+<meta name="keywords" content="yusuf, ruling.dev, roblox developer, lua, luau, game scripting, syniox hub, automation, anti exploit, web developer, portfolio">
+<meta name="author" content="Yusuf">
+<meta name="theme-color" content="#050505">
+<meta name="robots" content="index, follow">
+<meta name="color-scheme" content="dark">
+<link rel="canonical" href="https://yusuf.dev/">
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://yusuf.dev/">
+<meta property="og:site_name" content="YUSUF — Roblox Systems Developer">
+<meta property="og:locale" content="en_US">
+<meta property="og:title" content="YUSUF (ruling.dev) — Roblox Script &amp; Systems Developer">
+<meta property="og:description" content="17, self-taught. I script Roblox games, own Syniox Hub, and build automation tooling. This is my story.">
+<meta property="og:image" content="https://yusuf.dev/assets/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="YUSUF (ruling.dev) — Roblox Script &amp; Systems Developer">
+<meta name="twitter:description" content="17, self-taught. I script Roblox games, own Syniox Hub, and build automation tooling.">
+<meta name="twitter:image" content="https://yusuf.dev/assets/og.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+<link rel="dns-prefetch" href="https://i.hizliresim.com">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Syncopate:wght@400;700&family=Inter:wght@300;400;500;600;800;900&family=JetBrains+Mono:wght@400;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syncopate:wght@400;700&family=Inter:wght@300;400;500;600;800;900&family=JetBrains+Mono:wght@400;700&display=swap">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" referrerpolicy="no-referrer">
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='26' fill='%23050505'/%3E%3Cpath d='M26 22 L45 78 L55 78 L74 22 L60 22 L50 54 L40 22 Z' fill='%23ff2d2d'/%3E%3C/svg%3E">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="sitemap" type="application/xml" href="sitemap.xml">
+<link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='26' fill='%23050505'/%3E%3Cpath d='M26 22 L45 78 L55 78 L74 22 L60 22 L50 54 L40 22 Z' fill='%23ff2d2d'/%3E%3C/svg%3E">
+
+<link rel="stylesheet" href="style.css?v=20261011">
+<script>document.documentElement.classList.remove('no-js');</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Yusuf",
+  "alternateName": "ruling.dev",
+  "description": "Self-taught Roblox scripter and systems developer, owner of Syniox Hub.",
+  "jobTitle": "Roblox Script & Systems Developer",
+  "url": "https://yusuf.dev/",
+  "sameAs": [
+    "https://discord.gg/DbAU5Z6HPd",
+    "https://www.youtube.com/@syniox_yusuf",
+    "https://www.tiktok.com/@syniox_tt",
+    "https://www.roblox.com/tr/users/3977499711/profile"
+  ],
+  "knowsAbout": ["Lua","Luau","Roblox","Game Scripting","Automation","Anti-Exploit","JavaScript","HTML","CSS"]
+}
+</script>
+</head>
+<body>
+
+<a class="skip-link" href="#hero">Skip to content</a>
+
+<noscript>
+  <style>
+    .preloader,.cursor,.grain,.scroll-progress{display:none!important}
+    .topbar,.burger{opacity:1!important;transform:none!important}
+    .dots{opacity:1!important}
+    .noscript-note{
+      position:relative;z-index:1600;display:block;margin:0;padding:14px 24px;
+      background:rgba(255,43,43,.14);border-bottom:1px solid rgba(255,43,43,.35);
+      font-family:var(--font-mono);font-size:.66rem;letter-spacing:.14em;
+      color:var(--txt);text-align:center;text-transform:uppercase
+    }
+    .noscript-note a{color:var(--red);border-bottom:1px solid currentColor}
+  </style>
+  <p class="noscript-note">
+    JavaScript is off — the animations are off with it. Everything still reads fine.
+    Fastest way to reach Yusuf: <a href="https://discord.gg/DbAU5Z6HPd">ruling.dev on Discord</a>
+  </p>
+</noscript>
+
+<canvas id="bg" aria-hidden="true"></canvas>
+<div class="grain" aria-hidden="true"></div>
+
+<div class="cursor" aria-hidden="true">
+  <div class="cursor-dot"></div>
+  <div class="cursor-ring"><span class="cursor-label"></span></div>
+</div>
+
+<div class="scroll-progress" aria-hidden="true"><i></i></div>
+
+<div class="preloader" id="preloader">
+  <div class="pre-curtain" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
+  <div class="pre-inner">
+    <div class="pre-mark"><span>Y</span><span>U</span><span>S</span><span>U</span><span>F</span></div>
+    <div class="pre-count"><span id="preCount">0</span><small>%</small></div>
+    <div class="pre-bar"><i id="preBar"></i></div>
+    <p class="pre-note">LOADING // ruling.dev</p>
+  </div>
+</div>
+
+<header class="topbar">
+  <a class="brand" href="#hero">
+    <span class="brand-mark">Y</span>
+    <span class="brand-txt">YUSUF<small>ruling.dev</small></span>
+  </a>
+
+  <nav class="top-nav" aria-label="Quick navigation">
+    <span class="top-nav-pill" aria-hidden="true"></span>
+    <a href="#story" data-magnetic><i class="fa-solid fa-user-graduate"></i><span>Story</span></a>
+    <a href="#capabilities" data-magnetic><i class="fa-solid fa-code"></i><span>Capabilities</span></a>
+    <a href="#work" data-magnetic><i class="fa-solid fa-cube"></i><span>Work</span></a>
+    <a href="#faq" data-magnetic><i class="fa-solid fa-circle-question"></i><span>FAQ</span></a>
+  </nav>
+
+  <div class="topbar-right">
+    <button class="top-sound" id="soundBtn" aria-pressed="true" aria-label="Toggle sound effects">
+      <i class="fa-solid fa-volume-high"></i>
+    </button>
+    <span class="top-status"><i></i>WORKING ON SYNIOX HUB</span>
+    <a class="top-discord" href="https://discord.gg/DbAU5Z6HPd" target="_blank" rel="noopener noreferrer">
+      <i class="fa-brands fa-discord"></i><span>Discord</span>
+    </a>
+  </div>
+
+  <div class="topbar-progress" aria-hidden="true"><i></i></div>
+</header>
+
+<button class="burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="menu">
+  <span></span><span></span><span></span>
+</button>
+
+<div class="menu" id="menu" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Site menu">
+  <div class="menu-bg" aria-hidden="true">
+    <span class="menu-glow g1"></span>
+    <span class="menu-glow g2"></span>
+  </div>
+
+  <div class="menu-inner wrap">
+    <div class="menu-left">
+      <p class="menu-kicker"><span>INDEX</span> NAVIGATION</p>
+      <ul class="menu-list">
+        <li><a href="#hero" data-menu-link><i class="ml-num">01</i><i class="ml-txt">Home</i><i class="fa-solid fa-arrow-right-long ml-ar"></i></a></li>
+        <li><a href="#story" data-menu-link><i class="ml-num">02</i><i class="ml-txt">My story</i><i class="fa-solid fa-arrow-right-long ml-ar"></i></a></li>
+        <li><a href="#capabilities" data-menu-link><i class="ml-num">03</i><i class="ml-txt">Capabilities</i><i class="fa-solid fa-arrow-right-long ml-ar"></i></a></li>
+        <li><a href="#skills" data-menu-link><i class="ml-num">04</i><i class="ml-txt">Mastery</i><i class="fa-solid fa-arrow-right-long ml-ar"></i></a></li>
+        <li><a href="#work" data-menu-link><i class="ml-num">05</i><i class="ml-txt">Work</i><i class="fa-solid fa-arrow-right-long ml-ar"></i></a></li>
+        <li><a href="#journey" data-menu-link><i class="ml-num">06</i><i class="ml-txt">Journey</i><i class="fa-solid fa-arrow-right-long ml-ar"></i></a></li>
+        <li><a href="#faq" data-menu-link><i class="ml-num">07</i><i class="ml-txt">FAQ</i><i class="fa-solid fa-arrow-right-long ml-ar"></i></a></li>
+        <li><a href="#contact" data-menu-link><i class="ml-num">08</i><i class="ml-txt">Contact</i><i class="fa-solid fa-arrow-right-long ml-ar"></i></a></li>
+      </ul>
+    </div>
+
+    <aside class="menu-right">
+      <div class="menu-card">
+        <p class="mc-label">THE FASTEST WAY TO REACH ME</p>
+        <button class="mc-handle" data-copy="ruling.dev" aria-label="Copy Discord username ruling.dev">
+          <span>ruling.dev</span><i class="fa-regular fa-copy"></i>
+        </button>
+        <ul class="mc-list">
+          <li><i class="fa-solid fa-location-dot"></i> Türkiye &middot; Working remotely</li>
+          <li><i class="fa-regular fa-clock"></i> <span data-clock>--:--</span> local time</li>
+          <li><i class="fa-solid fa-circle-check"></i> Takes new scripting work</li>
+        </ul>
+        <a class="btn btn-primary btn-block" href="https://discord.gg/DbAU5Z6HPd" target="_blank" rel="noopener noreferrer" data-magnetic>
+          <span>Join my Discord</span><i class="fa-brands fa-discord"></i>
+        </a>
+        <div class="mc-socials">
+          <a href="https://youtube.com/@syniox_yusuf" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+          <a href="https://www.tiktok.com/@syniox_tt" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+          <a href="https://www.roblox.com/tr/users/3977499711/profile" target="_blank" rel="noopener noreferrer" aria-label="Roblox"><i class="fa-solid fa-cube"></i></a>
+        </div>
+      </div>
+    </aside>
+  </div>
+
+  <div class="menu-foot wrap">
+    <span>© <span data-year>2026</span> YUSUF — 17, SELF-TAUGHT</span>
+    <span class="menu-hint"><kbd>ESC</kbd> close &nbsp;&middot;&nbsp; <kbd>M</kbd> toggle</span>
+    <button class="menu-top" data-menu-close>BACK TO TOP <i class="fa-solid fa-arrow-up"></i></button>
+  </div>
+</div>
+
+<nav class="dots" aria-label="Section navigation">
+  <a href="#hero" data-dot="hero"><span>01 Home</span></a>
+  <a href="#story" data-dot="story"><span>02 Story</span></a>
+  <a href="#capabilities" data-dot="capabilities"><span>03 Capabilities</span></a>
+  <a href="#skills" data-dot="skills"><span>04 Mastery</span></a>
+  <a href="#work" data-dot="work"><span>05 Work</span></a>
+  <a href="#journey" data-dot="journey"><span>06 Journey</span></a>
+  <a href="#faq" data-dot="faq"><span>07 FAQ</span></a>
+  <a href="#contact" data-dot="contact"><span>08 Contact</span></a>
+</nav>
+
+<main>
+
+  <section class="hero" id="hero">
+    <div class="hero-bg" aria-hidden="true">
+      <span class="orb orb-1" data-par="0.05"></span>
+      <span class="orb orb-2" data-par="0.09"></span>
+      <span class="orb orb-3" data-par="0.03"></span>
+      <span class="hero-vignette"></span>
+    </div>
+
+    <div class="wrap hero-inner">
+      <p class="pill" data-reveal><i class="dot"></i> 17 years old &middot; self-taught &middot; 2026</p>
+
+      <div class="hero-avatar" data-reveal data-delay="80">
+        <span class="ring r1"></span><span class="ring r2"></span><span class="ring r3"></span>
+        <img src="https://i.hizliresim.com/r3xgxvw.gif" alt="Yusuf" width="190" height="190" fetchpriority="high">
+      </div>
+
+      <h1 class="hero-name"><span id="heroName">YUSUF</span></h1>
+      <p class="hero-handle">@<span data-copy="ruling.dev" role="button" tabindex="0" aria-label="Copy Discord username">ruling.dev</span></p>
+
+      <p class="hero-role">
+        <span class="rot" id="rot" data-roles='["Roblox Script &amp; Systems Developer","Luau Engineer","Anti-Exploit &amp; Data Systems","Automation Builder","Self-taught since age 16"]'>Roblox Script &amp; Systems Developer</span>
+      </p>
+
+      <p class="hero-bio" data-reveal data-delay="220">
+        I started in Roblox Studio at sixteen and never really stopped. Now I write production
+        scripts for multiple games, own <strong>Syniox Hub</strong>, and build the tools that
+        make all of it possible.
+      </p>
+
+      <div class="hero-cta" data-reveal data-delay="300">
+        <a href="https://discord.gg/DbAU5Z6HPd" target="_blank" rel="noopener noreferrer" class="btn btn-primary" data-magnetic data-cursor="join"><span>Join my Discord</span><i class="fa-brands fa-discord"></i></a>
+        <a href="#story" class="btn btn-ghost" data-magnetic data-cursor="read"><span>Read my story</span><i class="fa-solid fa-arrow-down"></i></a>
+      </div>
+
+      <ul class="hero-facts" data-reveal data-delay="380">
+        <li><i class="fa-solid fa-cube"></i> Owner of Syniox Hub</li>
+        <li><i class="fa-solid fa-graduation-cap"></i> High school student</li>
+        <li><i class="fa-solid fa-code"></i> Lua &middot; Luau &middot; JS</li>
+        <li><i class="fa-regular fa-clock"></i> <span data-clock>--:--</span></li>
+      </ul>
+    </div>
+
+    <a href="#story" class="scroll-hint" aria-label="Scroll down"><span>SCROLL</span><i></i></a>
+  </section>
+
+  <div class="ticker" aria-hidden="true">
+    <div class="ticker-track">
+      <span>LUA / LUAU</span><i class="fa-solid fa-circle"></i>
+      <span>ANTI-EXPLOIT</span><i class="fa-solid fa-circle"></i>
+      <span>SYNIOX HUB</span><i class="fa-solid fa-circle"></i>
+      <span>DATASTORE</span><i class="fa-solid fa-circle"></i>
+      <span>AUTOMATION</span><i class="fa-solid fa-circle"></i>
+      <span>REMOTE EVENTS</span><i class="fa-solid fa-circle"></i>
+      <span>LIVE-OPS</span><i class="fa-solid fa-circle"></i>
+      <span>WEB</span><i class="fa-solid fa-circle"></i>
+      <span>LUA / LUAU</span><i class="fa-solid fa-circle"></i>
+      <span>ANTI-EXPLOIT</span><i class="fa-solid fa-circle"></i>
+      <span>SYNIOX HUB</span><i class="fa-solid fa-circle"></i>
+      <span>DATASTORE</span><i class="fa-solid fa-circle"></i>
+      <span>AUTOMATION</span><i class="fa-solid fa-circle"></i>
+      <span>REMOTE EVENTS</span><i class="fa-solid fa-circle"></i>
+      <span>LIVE-OPS</span><i class="fa-solid fa-circle"></i>
+      <span>WEB</span><i class="fa-solid fa-circle"></i>
+    </div>
+  </div>
+
+  <section class="sec" id="story">
+    <div class="wrap">
+      <header class="sec-head" data-reveal>
+        <span class="sec-num">01</span>
+        <span class="sec-label">THE STORY</span>
+        <h2 class="sec-title" data-scramble>Nobody teaches you<br><em>how it starts</em></h2>
+      </header>
+
+      <div class="story-grid">
+        <div class="story-text" data-reveal>
+          <p class="lead" data-reveal data-scramble>I'm Yusuf. I'm seventeen, I'm in high school, and I taught myself to write scripts by breaking things on purpose.</p>
+
+          <p data-reveal data-delay="70">
+            It started at sixteen in Roblox Studio. I made chat-style games first — small, text-heavy,
+            mostly for the joke of it. Then I moved on to obby maps: parkour courses you replay fifty
+            times just to beat. I got proper distance records, proper timers, proper level design.
+          </p>
+
+          <p data-reveal data-delay="140">
+            Then I hit the part nobody warns you about. <strong>Nobody played them.</strong> A game with
+            zero players teaches you something brutal: the hard part was never building it, it was
+            getting anyone to show up. So I deleted the ambition, kept the skills, and went back to
+            playing Roblox like a normal person.
+          </p>
+
+          <p data-reveal data-delay="210">
+            And that's when it actually clicked. I started writing <strong>scripts</strong> instead of
+            games. Two people made that possible: <em>HalisAnteo</em> and <em>Henne</em>. Everything I
+            know about clean, production-grade scripting came from watching how they worked.
+          </p>
+
+          <p data-reveal data-delay="280">
+            My first scripts lived on Pastebin, pasted into forums at 2am. When I outgrew Pastebin I
+            moved everything to GitHub and started writing things other people could actually use.
+            I planned to script for exactly one game. Now I script for several — and I own
+            <strong>Syniox Hub</strong>, a server I built from the ground up and one I'm genuinely proud of.
+          </p>
+
+          <p class="story-end" data-reveal data-delay="350">
+            School takes my mornings and evenings. Everything else is code.
+          </p>
+
+          <ul class="badges" data-reveal data-delay="420">
+            <li><i class="fa-solid fa-user-graduate"></i> Self-taught</li>
+            <li><i class="fa-solid fa-code-branch"></i> Scripting since 16</li>
+            <li><i class="fa-solid fa-crown"></i> Syniox Hub owner</li>
+            <li><i class="fa-brands fa-github"></i> GitHub archive</li>
+            <li><i class="fa-solid fa-school"></i> Still in school</li>
+          </ul>
+        </div>
+
+        <div class="story-side">
+          <div class="id-card glass glow" data-reveal data-delay="80" data-glow data-tilt>
+            <div class="id-top">
+              <div class="id-av">
+                <img src="https://i.hizliresim.com/r3xgxvw.gif" alt="Yusuf avatar" width="66" height="66" loading="lazy" decoding="async">
+              </div>
+              <div class="id-meta">
+                <b>YUSUF</b>
+                <span>@ruling.dev</span>
+                <small>ROBLOX SCRIPT &amp; SYSTEMS DEVELOPER</small>
+              </div>
+            </div>
+            <dl class="id-rows">
+              <div><dt>AGE</dt><dd>17</dd></div>
+              <div><dt>BASED</dt><dd>Türkiye · Remote</dd></div>
+              <div><dt>STACK</dt><dd>Lua / Luau · JS</dd></div>
+              <div><dt>STATUS</dt><dd class="ok">Open to work</dd></div>
+            </dl>
+          </div>
+
+          <div class="term glass" data-reveal data-delay="160" id="terminal">
+            <div class="term-bar">
+              <span class="term-dots"><i></i><i></i><i></i></span>
+              <span class="term-title">yusuf@dev — ~/about</span>
+            </div>
+            <div class="term-body" id="termBody" aria-live="off"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec sec-stats" id="stats">
+    <div class="wrap">
+      <div class="stats-grid">
+        <div class="stat glass" data-reveal data-tilt>
+          <b data-count="10" data-suffix="+">0</b><span>Titles scripted</span>
+        </div>
+        <div class="stat glass" data-reveal data-delay="80" data-tilt>
+          <b data-count="2025">0</b><span>First script</span>
+        </div>
+        <div class="stat glass" data-reveal data-delay="160" data-tilt>
+          <b data-count="17">0</b><span>Years old</span>
+        </div>
+        <div class="stat glass" data-reveal data-delay="240" data-tilt>
+          <b data-count="100" data-suffix="%">0</b><span>Self-taught</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="capabilities">
+    <div class="wrap">
+      <header class="sec-head" data-reveal>
+        <span class="sec-num">02</span>
+        <span class="sec-label">CAPABILITIES</span>
+        <h2 class="sec-title" data-scramble>What I actually do</h2>
+      </header>
+
+      <div class="cap-grid">
+        <article class="cap glass glow" data-reveal data-glow data-tilt>
+          <span class="cap-idx">01</span>
+          <i class="fa-solid fa-terminal cap-ico"></i>
+          <h3>Roblox scripting</h3>
+          <p>Server and client scripts that stay readable while the game grows. Systems first, spaghetti never.</p>
+          <ul class="cap-tags"><li>Lua / Luau</li><li>Remotes</li><li>Modules</li></ul>
+        </article>
+
+        <article class="cap glass glow" data-reveal data-delay="60" data-glow data-tilt>
+          <span class="cap-idx">02</span>
+          <i class="fa-solid fa-database cap-ico"></i>
+          <h3>Data &amp; economy systems</h3>
+          <p>DataStore-backed progression, economies and leaderboards designed around what happens when the server is full.</p>
+          <ul class="cap-tags"><li>DataStore</li><li>Economy</li><li>Sessions</li></ul>
+        </article>
+
+        <article class="cap glass glow" data-reveal data-delay="120" data-glow data-tilt>
+          <span class="cap-idx">03</span>
+          <i class="fa-solid fa-shield-halved cap-ico"></i>
+          <h3>Anti-exploit</h3>
+          <p>Every value a client sends is treated as a lie until the server proves otherwise. Movement, currency, actions.</p>
+          <ul class="cap-tags"><li>Validation</li><li>Rate limits</li><li>Sanitise</li></ul>
+        </article>
+
+        <article class="cap glass glow" data-reveal data-delay="180" data-glow data-tilt>
+          <span class="cap-idx">04</span>
+          <i class="fa-solid fa-bolt cap-ico"></i>
+          <h3>Automation &amp; tooling</h3>
+          <p>Scheduled jobs, webhooks, data sync and the small scripts that save an hour of manual work every week.</p>
+          <ul class="cap-tags"><li>Webhooks</li><li>Scheduling</li><li>Scrapers</li></ul>
+        </article>
+
+        <article class="cap glass glow" data-reveal data-delay="240" data-glow data-tilt>
+          <span class="cap-idx">05</span>
+          <i class="fa-solid fa-users cap-ico"></i>
+          <h3>Servers &amp; live-ops</h3>
+          <p>Running Syniox Hub end to end — updates, events, community and the boring work nobody sees.</p>
+          <ul class="cap-tags"><li>Community</li><li>Events</li><li>Updates</li></ul>
+        </article>
+
+        <article class="cap glass glow" data-reveal data-delay="300" data-glow data-tilt>
+          <span class="cap-idx">06</span>
+          <i class="fa-solid fa-code cap-ico"></i>
+          <h3>Web interfaces</h3>
+          <p>Clean, fast front-ends with restrained motion. This site is the example — no frameworks, hand-written.</p>
+          <ul class="cap-tags"><li>HTML</li><li>CSS</li><li>JS</li></ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="skills">
+    <div class="wrap">
+      <header class="sec-head" data-reveal>
+        <span class="sec-num">03</span>
+        <span class="sec-label">MASTERY</span>
+        <h2 class="sec-title" data-scramble>Where I'm strongest</h2>
+      </header>
+
+      <div class="skills-grid">
+        <div class="rings" data-reveal>
+          <div class="ring-item">
+            <div class="ring-dial">
+              <svg viewBox="0 0 120 120" class="ring-svg" aria-hidden="true">
+                <circle class="ring-bg" cx="60" cy="60" r="52"></circle>
+                <circle class="ring-fg" cx="60" cy="60" r="52" data-ring="95"></circle>
+              </svg>
+              <b>95<span>%</span></b>
+            </div>
+            <small>LUA / LUAU</small>
+          </div>
+          <div class="ring-item">
+            <div class="ring-dial">
+              <svg viewBox="0 0 120 120" class="ring-svg" aria-hidden="true">
+                <circle class="ring-bg" cx="60" cy="60" r="52"></circle>
+                <circle class="ring-fg" cx="60" cy="60" r="52" data-ring="80"></circle>
+              </svg>
+              <b>80<span>%</span></b>
+            </div>
+            <small>JAVASCRIPT</small>
+          </div>
+          <div class="ring-item">
+            <div class="ring-dial">
+              <svg viewBox="0 0 120 120" class="ring-svg" aria-hidden="true">
+                <circle class="ring-bg" cx="60" cy="60" r="52"></circle>
+                <circle class="ring-fg" cx="60" cy="60" r="52" data-ring="85"></circle>
+              </svg>
+              <b>85<span>%</span></b>
+            </div>
+            <small>HTML / CSS</small>
+          </div>
+          <div class="ring-item">
+            <div class="ring-dial">
+              <svg viewBox="0 0 120 120" class="ring-svg" aria-hidden="true">
+                <circle class="ring-bg" cx="60" cy="60" r="52"></circle>
+                <circle class="ring-fg" cx="60" cy="60" r="52" data-ring="72"></circle>
+              </svg>
+              <b>72<span>%</span></b>
+            </div>
+            <small>UI / UX</small>
+          </div>
+        </div>
+
+        <ul class="bars" data-reveal data-delay="120">
+          <li class="bar-row">
+            <div class="bar-top"><span>GAME SYSTEMS &amp; SCRIPTS</span><b>92%</b></div>
+            <div class="track"><i data-bar="92"></i></div>
+          </li>
+          <li class="bar-row">
+            <div class="bar-top"><span>AUTOMATION &amp; TOOLING</span><b>90%</b></div>
+            <div class="track"><i data-bar="90"></i></div>
+          </li>
+          <li class="bar-row">
+            <div class="bar-top"><span>ANTI-EXPLOIT &amp; VALIDATION</span><b>85%</b></div>
+            <div class="track"><i data-bar="85"></i></div>
+          </li>
+          <li class="bar-row">
+            <div class="bar-top"><span>LIVE-OPS &amp; COMMUNITY</span><b>80%</b></div>
+            <div class="track"><i data-bar="80"></i></div>
+          </li>
+          <li class="bar-row">
+            <div class="bar-top"><span>API &amp; BACKEND</span><b>74%</b></div>
+            <div class="track"><i data-bar="74"></i></div>
+          </li>
+          <li class="bar-row">
+            <div class="bar-top"><span>DATABASES &amp; QUERIES</span><b>70%</b></div>
+            <div class="track"><i data-bar="70"></i></div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="work">
+    <div class="wrap">
+      <header class="sec-head" data-reveal>
+        <span class="sec-num">04</span>
+        <span class="sec-label">SELECTED WORK</span>
+        <h2 class="sec-title" data-scramble>Things I've built</h2>
+      </header>
+
+      <div class="work-grid">
+        <article class="proj glass feature" data-reveal data-tilt data-cursor="view">
+          <div class="proj-media m1"><span class="proj-no">01</span><i class="fa-solid fa-cube"></i><span class="proj-badge">OWNER</span></div>
+          <div class="proj-body">
+            <div class="proj-top"><h3>Syniox Hub</h3><span class="proj-type">ROBLOX</span></div>
+            <p>The server I own and build from the ground up — game systems, economy, anti-exploit and continuous live-ops work. Started as my own playground and turned into something people actually join.</p>
+            <ul class="proj-tags"><li>LUAU</li><li>ECONOMY</li><li>LIVE-OPS</li></ul>
+            <a class="proj-link" href="https://syniox-key-site.vercel.app/" target="_blank" rel="noopener noreferrer" data-cursor="open">Visit the server <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </article>
+
+        <article class="proj glass" data-reveal data-delay="80" data-tilt data-cursor="view">
+          <div class="proj-media m2"><span class="proj-no">02</span><i class="fa-solid fa-terminal"></i></div>
+          <div class="proj-body">
+            <div class="proj-top"><h3>Multi-title scripting</h3><span class="proj-type">SCRIPTS</span></div>
+            <p>I planned to write scripts for one game. Today it is several — systems built to hold up when a server fills up and every value is a moving target.</p>
+            <ul class="proj-tags"><li>LUA</li><li>REMOTES</li><li>DATASTORE</li></ul>
+            <a class="proj-link" href="https://discord.gg/DbAU5Z6HPd" target="_blank" rel="noopener noreferrer" data-cursor="open">Ask about a script <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </article>
+
+        <article class="proj glass" data-reveal data-delay="160" data-tilt data-cursor="view">
+          <div class="proj-media m3"><span class="proj-no">03</span><i class="fa-brands fa-github"></i></div>
+          <div class="proj-body">
+            <div class="proj-top"><h3>From Pastebin to GitHub</h3><span class="proj-type">ARCHIVE</span></div>
+            <p>My first scripts were pasted into dev forums at 2am. Now they live in a structured, documented library other developers can actually use.</p>
+            <ul class="proj-tags"><li>GITHUB</li><li>DOCS</li><li>REUSABLE</li></ul>
+            <a class="proj-link" href="https://discord.gg/DbAU5Z6HPd" target="_blank" rel="noopener noreferrer" data-cursor="open">See the library <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </article>
+
+        <article class="proj glass" data-reveal data-delay="240" data-tilt data-cursor="view">
+          <div class="proj-media m4"><span class="proj-no">04</span><i class="fa-solid fa-code"></i></div>
+          <div class="proj-body">
+            <div class="proj-top"><h3>This website</h3><span class="proj-type">WEB</span></div>
+            <p>The page you are reading. Hand-written HTML, CSS and JavaScript — no frameworks, no template, every animation built from scratch.</p>
+            <ul class="proj-tags"><li>HTML</li><li>CSS</li><li>JS</li></ul>
+            <a class="proj-link" href="#hero" data-cursor="top">Back to top <i class="fa-solid fa-arrow-up"></i></a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="journey">
+    <div class="wrap">
+      <header class="sec-head" data-reveal>
+        <span class="sec-num">05</span>
+        <span class="sec-label">CHAPTERS</span>
+        <h2 class="sec-title" data-scramble>How it went</h2>
+      </header>
+
+      <ol class="timeline">
+        <li data-reveal>
+          <span class="tl-year">AGE 16</span>
+          <div class="tl-card glass">
+            <h3>Chat games, then obbies</h3>
+            <p>First Roblox Studio experiments: text-heavy chat games, then parkour courses with real level design, timers and distance records.</p>
+          </div>
+        </li>
+        <li data-reveal data-delay="70">
+          <span class="tl-year">THE HITCH</span>
+          <div class="tl-card glass">
+            <h3>Nobody played</h3>
+            <p>Releasing games nobody opened was the most useful failure I've had. I learned the difference between building something and shipping something.</p>
+          </div>
+        </li>
+        <li data-reveal data-delay="140">
+          <span class="tl-year">THE PIVOT</span>
+          <div class="tl-card glass">
+            <h3>Games to scripts</h3>
+            <p>I stopped making games and started writing them instead. Same platform, completely different problem — and this time people needed it.</p>
+          </div>
+        </li>
+        <li data-reveal data-delay="210">
+          <span class="tl-year">MENTORS</span>
+          <div class="tl-card glass">
+            <h3>HalisAnteo &amp; Henne</h3>
+            <p>Two people shaped how I write code. Watching how they built things taught me structure, naming and why the server never trusts the client.</p>
+          </div>
+        </li>
+        <li data-reveal data-delay="280">
+          <span class="tl-year">PASTEBIN → GITHUB</span>
+          <div class="tl-card glass">
+            <h3>Scripts worth keeping</h3>
+            <p>Pasted snippets became a documented library. Everything I write now is structured so the next person — including me — can use it.</p>
+          </div>
+        </li>
+        <li data-reveal data-delay="350">
+          <span class="tl-year">2026 · NOW</span>
+          <div class="tl-card glass">
+            <h3>Syniox Hub &amp; high school</h3>
+            <p>Owning a server people actually join, scripting for several titles, and going to school. Mornings and evenings are school; the rest is code.</p>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="sec" id="faq">
+    <div class="wrap">
+      <header class="sec-head" data-reveal>
+        <span class="sec-num">06</span>
+        <span class="sec-label">FAQ</span>
+        <h2 class="sec-title" data-scramble>Questions people ask</h2>
+      </header>
+
+      <div class="faq" data-reveal>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false"><span>How did you learn to script?</span><i class="fa-solid fa-plus"></i></button>
+          <div class="faq-a"><p>Mostly by writing things for games I played and watching what other developers did with theirs. HalisAnteo and Henne were the biggest influences — Pastebin and forums got me started, GitHub is where everything lives now.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false"><span>You're 17 — how serious is this?</span><i class="fa-solid fa-plus"></i></button>
+          <div class="faq-a"><p>I go to high school, so mornings and evenings are school. Everything else is code. I've been building since I was sixteen, I own a live server, and I'm not going anywhere.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false"><span>What is Syniox Hub?</span><i class="fa-solid fa-plus"></i></button>
+          <div class="faq-a"><p>It's my Roblox server and the project I'm proudest of. I own it, I build it, and I run the live-ops side too — systems, economy, updates and community.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false"><span>Do you take scripting work?</span><i class="fa-solid fa-plus"></i></button>
+          <div class="faq-a"><p>Yes. Systems, scripts, anti-exploit work, automation and web front-ends. The fastest way to reach me is Discord — just message ruling.dev.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false"><span>Will you share your scripts?</span><i class="fa-solid fa-plus"></i></button>
+          <div class="faq-a"><p>The reusable, generic ones live on GitHub. Game-specific work stays private unless you want it otherwise — ask me on Discord.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec sec-contact" id="contact">
+    <div class="wrap">
+      <header class="sec-head" data-reveal>
+        <span class="sec-num">07</span>
+        <span class="sec-label">CONTACT</span>
+        <h2 class="sec-title" data-scramble>Discord first.<br><em>Always Discord.</em></h2>
+      </header>
+
+      <div class="contact-grid">
+        <div class="contact-side" data-reveal>
+          <p class="contact-lead">Everything happens on Discord — scripts, questions, commissions, or just to say what broke. If you'd rather not wait, drop a message below and it lands straight in my channel.</p>
+
+          <ul class="contact-list">
+            <li>
+              <button class="copy-row" data-copy="ruling.dev" aria-label="Copy Discord username">
+                <i class="fa-brands fa-discord"></i>
+                <span><small>Discord username</small>ruling.dev</span>
+                <em class="fa-regular fa-copy"></em>
+              </button>
+            </li>
+            <li><i class="fa-solid fa-cube"></i><span><small>Server</small>Syniox Hub — owner</span></li>
+            <li><i class="fa-solid fa-location-dot"></i><span><small>Location</small>Türkiye &middot; Working remotely</span></li>
+            <li><i class="fa-regular fa-clock"></i><span><small>Local time</small><span data-clock>--:--</span></span></li>
+          </ul>
+
+          <div class="contact-socials">
+            <a href="https://discord.gg/DbAU5Z6HPd" target="_blank" rel="noopener noreferrer" aria-label="Discord"><i class="fa-brands fa-discord"></i></a>
+            <a href="https://youtube.com/@syniox_yusuf" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+            <a href="https://www.tiktok.com/@syniox_tt" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+            <a href="https://www.roblox.com/tr/users/3977499711/profile" target="_blank" rel="noopener noreferrer" aria-label="Roblox"><i class="fa-solid fa-cube"></i></a>
+          </div>
+        </div>
+
+        <form class="contact-form glass" id="contactForm" novalidate data-reveal data-delay="120">
+          <div class="honey" aria-hidden="true"><label for="website">Website</label><input type="text" id="website" name="website" tabindex="-1" autocomplete="off"></div>
+
+          <div class="field">
+            <label for="name">Your name</label>
+            <input type="text" id="name" name="name" required autocomplete="name" placeholder="What should I call you?">
+            <span class="err">Please enter your name.</span>
+          </div>
+          <div class="field">
+            <label for="contact">How to reach you <em>optional</em></label>
+            <input type="text" id="contact" name="contact" autocomplete="nickname" placeholder="Discord tag, email, whatever">
+          </div>
+          <div class="field">
+            <label for="subject">Topic</label>
+            <select id="subject" name="subject">
+              <option>Scripting work</option>
+              <option>Roblox system / architecture</option>
+              <option>Anti-exploit</option>
+              <option>Automation &amp; tooling</option>
+              <option>Web design &amp; development</option>
+              <option>Something else</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5" required maxlength="1800" placeholder="Tell me what you need..."></textarea>
+            <span class="err">Please write at least 10 characters.</span>
+            <span class="counter" id="msgCount" aria-hidden="true">0 / 1800</span>
+          </div>
+          <div class="cf-box">
+            <div id="turnstile-widget"></div>
+            <p class="cf-note"><i class="fa-solid fa-shield-halved"></i> Bot check &mdash; Cloudflare Turnstile</p>
+          </div>
+          <button type="submit" class="btn btn-primary btn-full" data-magnetic data-cursor="send">
+            <span>Send message</span><i class="fa-solid fa-paper-plane"></i>
+          </button>
+          <p class="form-note" id="formNote" role="status" aria-live="polite"></p>
+          <p class="form-hint"><kbd>Ctrl</kbd> + <kbd>Enter</kbd> to send</p>
+          <div class="form-fallback" id="formFallback" hidden>
+            <p class="ff-warn"><i class="fa-solid fa-triangle-exclamation"></i>
+              <span id="ffReason">Delivery could not be confirmed.</span>
+            </p>
+            <div class="ff-actions">
+              <button type="button" class="btn btn-ghost" id="copyFallback">
+                <span>Copy my message</span><i class="fa-regular fa-copy"></i>
+              </button>
+              <a class="btn btn-primary" href="https://discord.gg/DbAU5Z6HPd" target="_blank" rel="noopener noreferrer">
+                <span>Open Discord</span><i class="fa-brands fa-discord"></i>
+              </a>
+            </div>
+            <p class="ff-note">The message is on your clipboard — paste it to ruling.dev and it is guaranteed to arrive.</p>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<div class="wave" aria-hidden="true">
+  <svg viewBox="0 0 1440 70" preserveAspectRatio="none"><path d="M0,35 C180,8 360,62 540,35 C720,8 900,62 1080,35 C1260,8 1380,42 1440,35"/></svg>
+  <svg viewBox="0 0 1440 70" preserveAspectRatio="none"><path d="M0,48 C240,72 480,22 720,48 C960,72 1200,22 1440,48"/></svg>
+</div>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <span class="fb-mark">Y</span>
+        <p>Built by a seventeen-year-old between school and sleep. Every line here is hand-written.</p>
+      </div>
+      <nav class="foot-nav" aria-label="Footer navigation">
+        <a href="#story">My story</a>
+        <a href="#capabilities">Capabilities</a>
+        <a href="#work">Work</a>
+        <a href="https://discord.gg/DbAU5Z6HPd" target="_blank" rel="noopener noreferrer">Discord</a>
+      </nav>
+    </div>
+
+    <div class="foot-word" aria-hidden="true">YUSUF</div>
+
+    <div class="foot-bot">
+      <span>© <span data-year>2026</span> Yusuf. All rights reserved.</span>
+      <span class="foot-made">Roblox &middot; Lua/Luau &middot; ruling.dev</span>
+    </div>
+  </div>
+</footer>
+
+<a class="fab-discord" href="https://discord.gg/DbAU5Z6HPd" target="_blank" rel="noopener noreferrer" aria-label="Join my Discord">
+  <i class="fa-brands fa-discord"></i><span>Join Discord</span>
+</a>
+
+<button class="to-top" id="toTop" aria-label="Back to top">
+  <svg viewBox="0 0 48 48" aria-hidden="true">
+    <circle class="tt-bg" cx="24" cy="24" r="20"></circle>
+    <circle class="tt-fg" id="ttRing" cx="24" cy="24" r="20"></circle>
+  </svg>
+  <b class="tt-pct" id="ttPct" aria-hidden="true">0%</b>
+  <i class="fa-solid fa-arrow-up" aria-hidden="true"></i>
+</button>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="script.js?v=20261011" defer></script>
+</body>
+</html>

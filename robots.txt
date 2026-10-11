@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+# nothing here is private, but nothing here is worth crawling either
+Disallow: /api/
+
+Sitemap: https://yusuf.dev/sitemap.xml
